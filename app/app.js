@@ -4,12 +4,8 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.home',
-  'myApp.view2',
-  'myApp.edit',
   'myApp.version',
-  'angularFileUpload',
   'kendo.directives',
-  'akoenig.deckgrid',
     'ui.router'
 
 
