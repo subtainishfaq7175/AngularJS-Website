@@ -40,6 +40,13 @@
                 templateUrl: 'letsplay/letsplay.html',
                 controller: 'LetsPlayCtrl'
 
+            })
+            .state('letsplaypost',
+                {
+                    url: '/letsplay/playpost',
+                templateUrl: 'letsplaypost/letsplaypost.html',
+                controller: 'letsPlayPostCtrl'
+
             });
 
             /*
