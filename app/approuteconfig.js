@@ -10,9 +10,17 @@
         /**
          * Default path for any unmatched url
          */
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/notfound');
+        $urlRouterProvider.when('', '/');
 
         $stateProvider
+            .state('404',
+                {
+                    url: '/notfound',
+                templateUrl: 'notfound/notfound.html',
+                controller: 'notfoundCtrl'
+
+            })
             .state('home',
                 {
                     url: '/',
