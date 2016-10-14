@@ -1,0 +1,8 @@
+.myrow [class*="col-"]{
+  margin-bottom: -9999px;
+  padding-bottom: 9999px;
+}
+
+.myrow{
+  overflow: hidden; 
+}
