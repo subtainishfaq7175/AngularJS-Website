@@ -1,10 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('gameApp', [
   'ngRoute',
-  'myApp.home',
-  'myApp.version',
+  'gameApp.home',
+  'gameApp.version',
   'kendo.directives',
     'ui.router'
 

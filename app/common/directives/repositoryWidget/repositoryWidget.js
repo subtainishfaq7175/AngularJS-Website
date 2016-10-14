@@ -1,5 +1,5 @@
 (function () {
-    angular.module("myApp").directive('repositoryWidget', [repoPartial]);
+    angular.module("gameApp").directive('repositoryWidget', [repoPartial]);
 
     function repoPartial() {
         var directive = {

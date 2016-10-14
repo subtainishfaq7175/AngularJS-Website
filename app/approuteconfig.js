@@ -5,7 +5,7 @@
 
 
 
-    angular.module('myApp').config(['$stateProvider','$urlRouterProvider', function($stateProvider,$urlRouterProvider) {
+    angular.module('gameApp').config(['$stateProvider','$urlRouterProvider', function($stateProvider,$urlRouterProvider) {
 
         /**
          * Default path for any unmatched url

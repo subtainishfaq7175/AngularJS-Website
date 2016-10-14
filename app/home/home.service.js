@@ -2,7 +2,7 @@
  * Created by subtainishfaq on 10/13/16.
  */
 
-angular.module("myApp").factory('homeService',['$http','SeatEatsConstants', function($http,SeatEatsConstants){
+angular.module("gameApp").factory('homeService',['$http','SeatEatsConstants', function($http,SeatEatsConstants){
 
     var home = {};
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.home', ['ngRoute'])
+angular.module('gameApp.home', ['ngRoute'])
 
 
 .controller('HomeCtrl', ['$scope','SeatEatsConstants','$state','homeService',function($scope,SeatEatsConstants,$state,homeService)

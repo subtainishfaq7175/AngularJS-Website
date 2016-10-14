@@ -14,7 +14,7 @@
 //})();
 
 (function(){
-    angular.module('myApp').
+    angular.module('gameApp').
     constant('SeatEatsConstants', {
 
       "AppUrl":"http://seateats.net/upload/",
