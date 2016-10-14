@@ -70,6 +70,13 @@
                     templateUrl: 'games/games.html',
                     controller: 'gamesCtrl'
 
+                })
+            .state('gamespost',
+                {
+                    url: '/games/gamespost',
+                    templateUrl: 'gamespost/gamespost.html',
+                    controller: 'gamespostCtrl'
+
                 });
 
             /*
