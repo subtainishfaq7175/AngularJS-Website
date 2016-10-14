@@ -27,6 +27,13 @@
                 controller: 'NewsCtrl',
 
             })
+            .state('newspost',
+                {
+                    url: '/news/newspost',
+                templateUrl: 'newspost/newspost.html',
+                controller: 'NewspostCtrl',
+
+            })
 
             /*
             .state('edit', {
