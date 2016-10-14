@@ -17,23 +17,30 @@
                 {
                     url: '/',
                 templateUrl: 'home/home.html',
-                controller: 'HomeCtrl',
+                controller: 'HomeCtrl'
 
             })
             .state('news',
                 {
                     url: '/news',
                 templateUrl: 'news/news.html',
-                controller: 'NewsCtrl',
+                controller: 'NewsCtrl'
 
             })
             .state('newspost',
                 {
                     url: '/news/newspost',
                 templateUrl: 'newspost/newspost.html',
-                controller: 'NewspostCtrl',
+                controller: 'NewspostCtrl'
 
             })
+            .state('letsplay',
+                {
+                    url: '/letsplay',
+                templateUrl: 'letsplay/letsplay.html',
+                controller: 'LetsPlayCtrl'
+
+            });
 
             /*
             .state('edit', {
