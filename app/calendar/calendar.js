@@ -1,9 +1,6 @@
 'use strict';
 
-angular.module('gameApp.home', ['ngRoute'])
-
-
-.controller('HomeCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+angular.module('gameApp').controller('calendarCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
 {
 
 

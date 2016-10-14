@@ -21,6 +21,13 @@
                 controller: 'notfoundCtrl'
 
             })
+            .state('calendar',
+                {
+                    url: '/calendar',
+                templateUrl: 'calendar/calendar.html',
+                controller: 'calendarCtrl'
+
+            })
             .state('home',
                 {
                     url: '/',

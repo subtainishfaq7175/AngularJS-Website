@@ -7,6 +7,4 @@ angular.module('gameApp', [
   'gameApp.version',
   'kendo.directives',
     'ui.router'
-
-
 ]);
