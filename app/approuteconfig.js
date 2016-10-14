@@ -20,6 +20,14 @@
                 controller: 'HomeCtrl',
 
             })
+            .state('news',
+                {
+                    url: '/news',
+                templateUrl: 'news/news.html',
+                controller: 'NewsCtrl',
+
+            })
+
             /*
             .state('edit', {
                 url: '/edit',
