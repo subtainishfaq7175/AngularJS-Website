@@ -21,13 +21,7 @@
                 controller: 'notfoundCtrl'
 
             })
-            .state('calendar',
-                {
-                    url: '/calendar',
-                templateUrl: 'calendar/calendar.html',
-                controller: 'calendarCtrl'
 
-            })
             .state('home',
                 {
                     url: '/',
@@ -62,7 +56,21 @@
                 templateUrl: 'letsplaypost/letsplaypost.html',
                 controller: 'letsPlayPostCtrl'
 
-            });
+            })
+            .state('calendar',
+                {
+                    url: '/calendar',
+                    templateUrl: 'calendar/calendar.html',
+                    controller: 'calendarCtrl'
+
+                })
+            .state('games',
+                {
+                    url: '/games',
+                    templateUrl: 'games/games.html',
+                    controller: 'gamesCtrl'
+
+                });
 
             /*
             .state('edit', {

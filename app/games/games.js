@@ -1,9 +1,6 @@
 'use strict';
 
-angular.module('gameApp')
-
-
-.controller('HomeCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+angular.module('gameApp').controller('gamesCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
 {
 
 
