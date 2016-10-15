@@ -77,6 +77,34 @@
                     templateUrl: 'gamespost/gamespost.html',
                     controller: 'gamespostCtrl'
 
+                })
+            .state('walkthrough',
+                {
+                    url: '/walkthrough',
+                    templateUrl: 'walkthrough/walkthrough.html',
+                    controller: 'walkthroughCtrl'
+
+                })
+            .state('faq',
+                {
+                    url: '/faq',
+                    templateUrl: 'faq/faq.html',
+                    controller: 'faqCtrl'
+
+                })
+            .state('contact',
+                {
+                    url: '/contact',
+                    templateUrl: 'contact/contact.html',
+                    controller: 'contactCtrl'
+
+                })
+            .state('disclaimer',
+                {
+                    url: '/disclaimer',
+                    templateUrl: 'disclaimer/disclaimer.html',
+                    controller: 'disclaimerCtrl'
+
                 });
 
             /*
