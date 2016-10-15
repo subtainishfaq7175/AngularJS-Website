@@ -7,10 +7,23 @@ angular.module('gameApp')
 {
 
 
+    debugger;
 
 
 
+$scope.isTable=false;
+$scope.clickTable=function ()
+{
 
+    $scope.isTable=true;
+
+};
+$scope.clickList=function ()
+{
+
+    $scope.isTable=false;
+
+}
 
 
 }]);
