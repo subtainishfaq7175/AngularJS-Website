@@ -85,6 +85,13 @@
                     controller: 'walkthroughCtrl'
 
                 })
+            .state('walkthroughpost',
+                {
+                    url: '/walkthrough/reader',
+                    templateUrl: 'walkthroughpost/walkthroughpost.html',
+                    controller: 'walkthroughpostCtrl'
+
+                })
             .state('faq',
                 {
                     url: '/faq',

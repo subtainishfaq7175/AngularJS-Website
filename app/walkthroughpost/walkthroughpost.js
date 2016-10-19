@@ -1,21 +1,38 @@
 'use strict';
 
-angular.module('gameApp').controller('walkthroughCtrl', ['$scope','SeatEatsConstants','$state','walkthroughService',function($scope,SeatEatsConstants,$state,walkthroughService)
+angular.module('gameApp')
+
+
+.controller('walkthroughpostCtrl', ['$scope','SeatEatsConstants','$state','walkthroughpostService',function($scope,SeatEatsConstants,$state,walkthroughpostService)
 {
 
-    //todo add pagination ,tags and dyncamic data
-$scope.isWalkthroughLoaded = true;//false;
+//Todo make content dynamic and and add resolve
 
-walkthroughService.getWalkthroughPost().then(function (response)
+
+/*
+$scope.isTable=false;
+$scope.isWalkthroughPostLoaded=false;
+
+    walkthroughpostService.getWalkthroughPostLoadedList().then(function(response)
 {
-console.log(response);
-    $scope.isWalkthroughLoaded=true;
-});
+    console.log(response);
+    $scope.isWalkthroughPostLoaded=true;
 
+    });
 
+$scope.clickTable=function ()
+{
 
+    $scope.isTable=true;
 
+};
 
+$scope.clickList=function ()
+{
+
+    $scope.isTable=false;
+
+}*/
 
 
 }]);
