@@ -4,9 +4,9 @@ angular.module('gameApp').controller('walkthroughCtrl', ['$scope','SeatEatsConst
 {
 
     //todo add pagination ,tags and dyncamic data
-$scope.isWalkthroughLoaded = true;//false;
+$scope.isWalkthroughLoaded = false;
 
-walkthroughService.getWalkthroughPost().then(function (response)
+walkthroughService.getWalkthroughList().then(function (response)
 {
 console.log(response);
     $scope.isWalkthroughLoaded=true;
