@@ -17,7 +17,8 @@ angular.module('gameApp')
     homeService.getGamesUpdate().then(function(response)
     {
         console.log(response);
-        $scope.isLetsplayLoaded=false;
+        $scope.isGamesUpdateLoaded=true;
+
 
 
 
@@ -26,7 +27,7 @@ angular.module('gameApp')
     homeService.getGamesFeed().then(function(response)
     {
         console.log(response);
-        $scope.isLetsplayLoaded=false;
+        $scope.isGamesFeedLoaded=true;
 
 
 
@@ -35,17 +36,18 @@ angular.module('gameApp')
     homeService.getLetsplayUpdate().then(function(response)
     {
         console.log(response);
-        $scope.isLetsplayLoaded=false;
+        $scope.isLetsplayUpdateLoaded=true;
+
 
 
 
 
     });
 
-    homeService.getNeswsUpdate().then(function(response)
+    homeService.getNewsUpdate().then(function(response)
     {
         console.log(response);
-        $scope.isLetsplayLoaded=false;
+        $scope.isNewsUpdateLoaded=true;
 
 
 

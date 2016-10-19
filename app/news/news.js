@@ -3,8 +3,19 @@
 angular.module('gameApp')
 
 
-.controller('NewsCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+.controller('NewsCtrl', ['$scope','SeatEatsConstants','$state','newsService',function($scope,SeatEatsConstants,$state,newsService)
 {
+//Todo search and pagination
+
+
+$scope.isNewsLoaded=false;
+
+    newsService.getNewsList().then(function (response)
+    {
+    console.log(response);
+    $scope.isNewsLoaded=true;
+
+    });
 
 
 

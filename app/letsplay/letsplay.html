@@ -113,7 +113,8 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-9" ng-if="isLetsplayLoaded">
+                            <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isLetsplayLoaded"></span>
                             <div class="well well-sm" style="background-color:#FAFAFA">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -179,89 +180,9 @@
                                 </div>
                             </div>
                         </div>
+                        <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isLetsplayLoaded"></span>
 
-                        <div class="col-md-9">
-                            <div class="well well-sm" style="background-color:#FAFAFA">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a href="#/letsplay/playpost">
-                                            <img class="img-responsive" src="common/content/Uploads/Cover/bfbc.png" style="margin:0px auto;width:100%;display:inline-block;">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-8 section-box">
-                                        <h3><a href="#/letsplay/playpost">Battlefield: Bad Company</a></h3>
-                                        <p>
-                                        <div class="text1" style="height: 2px"></div>
-                                        <div class="row">
-                                            <div class="col-xs-2 col-md-2">
-                                                <button type="button" class="btn btn-danger btn-xs">Censored</button>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix" style="height: 3px"></div>
-                                        <div class="row">
-                                            <div class="col-xs-2 col-md-2">
-                                                <strong>Released:</strong>
-                                            </div>
-                                            <div class="col-xs-9 col-md-5" style="margin-left: 30px">
-                                                May 19th, 2009
-                                            </div>
-                                        </div>
-                                        <div class="text1" style="height: 5px"></div>
-                                        <div class="row">
-                                            <div class="col-xs-2 col-md-2">
-                                                <strong>Description:</strong>
-                                            </div>
-                                            <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                Preston Marlowe is transferred to Bad Company and embarks on his first mission with his new squad. They begin by seizing Russian artillery positions and turning the guns on advancing enemy armor.
-                                            </div>
-                                        </div>
-                                        <div class="text1" style="height: 5px"></div>
-                                        <div class="row">
-                                            <div class="col-xs-2 col-md-2">
-                                                <strong>Languages:</strong>
-                                            </div>
-                                            <div class="col-xs-9 col-md-7" style="margin-left: 30px">
-                                                <button type="button" class="btn btn-warning btn-xs">English</button>
-                                                <button type="button" class="btn btn-warning btn-xs">German</button>
-                                                <button type="button" class="btn btn-warning btn-xs">Spain</button>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix" style="height: 5px"></div>
-                                        <div class="row">
-                                            <div class="col-xs-2 col-md-2">
-                                                <strong>TAGS:</strong>
-                                            </div>
-                                            <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-dark">shooter</span></a>
-                                                <a href="#"><span class="label label-dark">battlefield</span></a>
-                                            </div>
-                                        </div>
-                                        </p>
-                                        <hr />
-                                        <div class="row rating-desc">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="row">
-                                <ul class="pagination pull-right" style="padding-top:10px; padding-right:35px">
-                                    <li><a href="#"><i class="fa fa-chevron-left"></i></a>
-                                    </li>
-                                    <li class="active"><a href="#">1</a>
-                                    </li>
-                                    <li><a href="#">2</a>
-                                    </li>
-                                    <li><a href="#">3</a>
-                                    </li>
-                                    <li><a href="#">4</a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-chevron-right"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="clearfix" style="height:15px;"></div>
-                        </div>
 
 
                     </div>
@@ -585,61 +506,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr ng-if="isLetsplayLoaded">
                         <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">Grand Theft Auto V</a>
                         </td>
                         <td>15/06/2009</td>
                     </tr>
-                    <tr>
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">Minecraft</a>
-                        </td>
-                        <td>26/09/2009</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">The Witcher III</a>
-                        </td>
-                        <td>02/12/2015</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">Grand Theft Auto V Random Title random title random title</a>
-                        </td>
-                        <td>15/06/2009</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">Minecraft</a>
-                        </td>
-                        <td>26/09/2009</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">Grand Theft Auto V</a>
-                        </td>
-                        <td>15/06/2009</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">Battlefield 2</a>
-                        </td>
-                        <td>26/09/2009</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">Grand Theft Auto V</a>
-                        </td>
-                        <td>15/06/2009</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">The Sims</a>
-                        </td>
-                        <td>26/09/2009</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">Grand Theft Auto V</a>
-                        </td>
-                        <td>15/06/2009</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">Minecraft</a>
-                        </td>
-                        <td>26/09/2009</td>
-                    </tr>
+                    <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isLetsplayLoaded"></span>
+
                     </tbody>
                 </table>
 

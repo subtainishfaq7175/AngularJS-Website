@@ -16,21 +16,21 @@ angular.module("gameApp").factory('homeService',['$http','SeatEatsConstants', fu
     home.getLetsplayUpdate= function ()
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesupdate');
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'letsplaysupdate');
         return promise;
     };
 
     home.getNewsUpdate= function ()
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesupdate');
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'newsupdate');
         return promise;
     };
 
     home.getGamesFeed= function ()
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesupdate');
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesfeed');
         return promise;
     };
 

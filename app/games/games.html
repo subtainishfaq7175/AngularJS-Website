@@ -97,38 +97,11 @@
         </div>
         <div class="ca-wrapper" style="overflow: hidden; padding-top:0px">
 
-            <div class="ca-item ca-item-1" style="position: absolute; left: 0px;">
+            <div class="ca-item ca-item-1" style="position: absolute; left: 0px;" ng-if="">
                 <div class="ca-item-main">
                     <div class="ca-icon">
                         <a href="/Media/Show/3864/ark" class="preloader">
                             <img src="common/img/media/ark.jpg" style="width:390px;height:294px;display: block; visibility: visible; opacity: 1;margin-left:-56px;margin-top:-4px;" alt="Kowaremono: Risa The Animation" title="Kowaremono: Risa The Animation">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="ca-item ca-item-1" style="position: absolute; left: 330px;">
-                <div class="ca-item-main">
-                    <div class="ca-icon">
-                        <a href="/Media/Show/3841/gta" class="preloader">
-                            <img src="common/img/media/gta.jpg" style="width:390px;height:294px;display: block; visibility: visible; opacity: 1;margin-left:-56px;margin-top:-4px;" alt="Oni Chichi: Refresh" title="Oni Chichi: Refresh">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="ca-item ca-item-1" style="position: absolute; left: 660px;">
-                <div class="ca-item-main">
-                    <div class="ca-icon">
-                        <a href="/Media/Show/3850/minecraft" class="preloader">
-                            <img src="common/img/media/minecraft.jpg" style="width:390px;height:294px;display: block; visibility: visible; opacity: 1;margin-left:-56px;margin-top:-4px;" alt="Creamy Pie" title="Creamy Pie">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="ca-item ca-item-1" style="position: absolute; left: 990px;">
-                <div class="ca-item-main">
-                    <div class="ca-icon">
-                        <a href="/Media/Show/3860/ark" class="preloader">
-                            <img src="common/img/media/ark.jpg" style="width:390px;height:294px;display: block; visibility: visible; opacity: 1;margin-left:-56px;margin-top:-4px;" alt="Kowaremono The Animation" title="Kowaremono The Animation">
                         </a>
                     </div>
                 </div>
@@ -221,7 +194,7 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-9" ng-if="isGamesLoaded">
                             <div class="well well-sm" style="background-color:#FAFAFA">
                                 <div class="row">
                                     <div class="col-md-5">
@@ -293,96 +266,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div >
+                        <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isGamesLoaded"></span>
 
 
-                        <div class="col-md-9">
-                            <div class="well well-sm" style="background-color:#FAFAFA">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <a href="#/games/gamespost">
-                                            <img class="img-responsive" src="common/img/media/minecraft.jpg" style="margin:0px auto;width:100%;display:inline-block;">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-7 section-box">
-                                        <h3><a href="#/games/gamespost">Minecraft</a></h3>
-                                        <p>
-                                        <div class="text1" style="height: 2px; margin-bottom:-20px"></div>
-                                        <div class="row">
-                                            <div class="col-xs-2 col-md-2">
-                                                <strong>Category:</strong>
-                                            </div>
-                                            <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-pink">Game</span></a>
-                                                <a href="#"><span class="label label-green">Sandbox</span></a>
-                                            </div>
-                                        </div>
-                                        <div class="text1" style="height: 5px"></div>
-                                        <div class="row">
-                                            <div class="col-xs-2 col-md-2">
-                                                <strong>Genre:</strong>
-                                            </div>
-                                            <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-tertiary">Open World</span></a>
-                                                <a href="#"><span class="label label-tertiary">Adventure</span></a>
-                                            </div>
-                                        </div>
-                                        <div class="text1" style="height: 5px"></div>
-                                        <div class="row">
-                                            <div class="col-xs-2 col-md-2">
-                                                <strong>Description:</strong>
-                                            </div>
-                                            <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <div class="crop">
-                                                    Minecraft is an open-world game unlike any other. Players are placed in a borderless, randomly generated land with no supplies, directions, or objective. It is up to them to decide what to do and how to do it. Players collect materials from the world around them in order to ‘craft’ items and build whatever their mind can imagine. The concept is similar to playing with LEGOs, only the amount of blocks is limitless. There are forests to explore, mountains to climb, oceans to cross, and dungeons to discover. When the sun goes down, the monsters appear, and players must fend them off or build shelter for protection.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="text1" style="height: 5px"></div>
-                                        <div class="row">
-                                            <div class="col-xs-2 col-md-2">
-                                                <strong>Languages:</strong>
-                                            </div>
-                                            <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-secondary ">English</span></a>
-                                            </div>
-                                        </div>
-                                        <div class="text1" style="height: 5px"></div>
-                                        <div class="row">
-                                            <div class="col-xs-2 col-md-2">
-                                                <strong>TAGS:</strong>
-                                            </div>
-                                            <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-dark">Open World</span></a>
-                                                <a href="#"><span class="label label-dark">Pixel</span></a>
-                                                <a href="#"><span class="label label-dark">Sandbox</span></a>
-                                                <a href="#"><span class="label label-dark">Mojang</span></a>
-                                            </div>
-                                        </div>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
 
-
-                            <div class="row">
-                                <ul class="pagination pull-right" style="padding-top:10px; padding-right:35px">
-                                    <li><a href="#"><i class="fa fa-chevron-left"></i></a>
-                                    </li>
-                                    <li class="active"><a href="#">1</a>
-                                    </li>
-                                    <li><a href="#">2</a>
-                                    </li>
-                                    <li><a href="#">3</a>
-                                    </li>
-                                    <li><a href="#">4</a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-chevron-right"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="clearfix" style="height:15px;"></div>
-                        </div>
 
 
                     </div>

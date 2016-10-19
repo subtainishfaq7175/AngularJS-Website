@@ -1,7 +1,23 @@
 'use strict';
 
-angular.module('gameApp').controller('gamesCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+angular.module('gameApp').controller('gamesCtrl', ['$scope','SeatEatsConstants','$state','gamesService',function($scope,SeatEatsConstants,$state,gamesService)
 {
+//Todo pagination , search and popular tabs
+    $scope.isGamesLoaded=false;
+    $scope.isGamesFeedLoaded=false;
+
+    gamesService.getGamesList().then(function (response)
+    {
+    $scope.isGamesLoaded=true;
+        console.log(response);
+
+    });
+    gamesService.getGamesFeed().then(function (response)
+    {
+    console.log(response);
+        $scope.isGamesFeedLoaded=true;
+
+    })
 
 
 

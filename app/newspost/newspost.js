@@ -6,9 +6,7 @@ angular.module('gameApp')
 .controller('NewspostCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
 {
 
-
-
-
+//Todo make content dynamic and and add resolve
 
 
 

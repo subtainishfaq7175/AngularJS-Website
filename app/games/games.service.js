@@ -6,24 +6,19 @@ angular.module("gameApp").factory('gamesService',['$http','SeatEatsConstants', f
 
     var home = {};
 
-    home.getRepoList= function ()
+    home.getGamesList= function ()
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'getRepoList.php');
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'games');
         return promise;
     };
-    home.createRepo= function (index)
+    home.getGamesFeed= function ()
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'createrepository.php?index='+index);
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesfeed');
         return promise;
     };
-    home.removeRepository= function (index)
-    {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'removeRepository.php?index='+index);
-        return promise;
-    };
 
     return home;
 

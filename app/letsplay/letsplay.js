@@ -3,21 +3,30 @@
 angular.module('gameApp')
 
 
-.controller('LetsPlayCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+.controller('LetsPlayCtrl', ['$scope','SeatEatsConstants','$state','letsplayService',function($scope,SeatEatsConstants,$state,letsplayService)
 {
 
-
-    debugger;
+//Todo Search Functionality and bottom tab
 
 
 
 $scope.isTable=false;
+$scope.isLetsplayLoaded=false;
+
+letsplayService.getLetsplayList().then(function(response)
+{
+    console.log(response);
+    $scope.isLetsplayLoaded=true;
+
+    });
+
 $scope.clickTable=function ()
 {
 
     $scope.isTable=true;
 
 };
+
 $scope.clickList=function ()
 {
 

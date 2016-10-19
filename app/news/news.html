@@ -37,7 +37,7 @@
                     <div class="col-md-9">
                         <div class="blog-posts">
 
-                            <article class="post post-medium">
+                            <article class="post post-medium" ng-if="isNewsLoaded">
                                 <div class="row">
 
                                     <div class="col-md-5">
@@ -70,71 +70,13 @@
                                 </div>
 
                             </article>
+                            <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isNewsLoaded"></span>
+
                             <!-- Article 2 -->
-                            <article class="post post-medium">
-                                <div class="row">
 
-                                    <div class="col-md-5">
-                                        <div class="img-thumbnail">
-                                            <img class="img-responsive" src="common/img/news/minecraft.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7">
-
-                                        <div class="post-content">
-
-                                            <h2><a href="#/news/newspost">Class aptent taciti sociosqu ad litora torquent</a></h2>
-                                            <p>Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nunc dui, tristique in semper vel, congue sed ligula. Nam dolor ligula, faucibus id sodales in, auctor fringilla libero. [...]</p>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="post-meta">
-                                            <span><i class="fa fa-calendar"></i> January 10, 2013 </span>
-                                            <span><i class="fa fa-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>
-                                            <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-                                            <a href="#/news/newspost" class="btn btn-xs btn-primary pull-right">Read more...</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </article>
-                            <!-- Article 3 -->
-                            <article class="post post-medium">
-                                <div class="row">
-
-                                    <div class="col-md-5">
-                                        <div class="img-thumbnail">
-                                            <img class="img-responsive" src="common/img/news/ark.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7">
-
-                                        <div class="post-content">
-
-                                            <h2><a href="#/news/newspost">Class aptent taciti sociosqu ad litora torquent</a></h2>
-                                            <p>Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nunc dui, tristique in semper vel, congue sed ligula. Nam dolor ligula, faucibus id sodales in, auctor fringilla libero. Pellentesque pellentesque tempor tellus eget hendrerit. Morbi id aliquam ligula. Aliquam id dui sem. Proin rhoncus consequat nisl, eu ornare mauris tincidunt vitae. [...]</p>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="post-meta">
-                                            <span><i class="fa fa-calendar"></i> January 10, 2013 </span>
-                                            <span><i class="fa fa-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>
-                                            <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-                                            <a href="#/news/newspost" class="btn btn-xs btn-primary pull-right">Read more...</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </article>
                             <!-- Pagination -->
+
+
                             <ul class="pagination pagination-md pull-right">
                                 <li><a href="#">«</a>
                                 </li>
