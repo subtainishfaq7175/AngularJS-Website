@@ -3,6 +3,13 @@
 angular.module('gameApp').controller('walkthroughCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
 {
 
+$scope.isWalkthroughLoaded = false;
+
+walkthroughService.getWalkthroughList().then(function (response)
+{
+console.log(response);
+    $scope.isWalkthroughLoaded=true;
+});
 
 
 

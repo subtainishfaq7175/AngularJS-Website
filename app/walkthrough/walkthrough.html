@@ -78,8 +78,10 @@
 
                 <!-- -10 rows, so 5 in one row x 10 rows = 50 on one page -->
                 <div class="container">
-                    <div class="row" style="margin-left:-25px; padding-right:25px">
-                        <div class="col-md-15 col-sm-12">
+                    <div class="row" style="margin-left:-25px; padding-right:25px" ng-if="isWalkthroughLoaded">
+                        <!--This is row there are 5 in one row , incase of greater response, Add the row
+                    -->
+                        <div class="col-md-15 col-sm-12" ng-if="isWalkthroughLoaded">
                             <div class="well well-sm" style="background-color:#FFFFFF">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -101,208 +103,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-15 col-sm-12">
-                            <div class="well well-sm" style="background-color:#FFFFFF">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="#">
-                                            <img class="img-responsive" src="common/img/sims.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h6><a href="#">Minecraft <img style="width: 25px" src="common/flags/flags/24/Germany.png" alt="Japanese Dub"></a></h6>
-                                        <div class="text1" style="height: 1px"></div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a href="#"><span class="label label-default">Plattformer</span></a>
-                                                <a href="#"><span class="label label-primary">Action</span></a>
-                                            </div>
-                                        </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-15 col-sm-12">
-                            <div class="well well-sm" style="background-color:#FFFFFF">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="#">
-                                            <img class="img-responsive" src="common/img/fallout3.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h6><a href="#">Grand Theft Auto V <img style="width: 25px" src="common/flags/flags/24/United States of America(USA).png" alt="Japanese Dub"></a></h6>
-                                        <div class="text1" style="height: 1px"></div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a href="#"><span class="label label-warning">Shooter</span></a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-15 col-sm-12">
-                            <div class="well well-sm" style="background-color:#FFFFFF">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="#">
-                                            <img class="img-responsive" src="common/img/gta.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h6><a href="#">Battlefield 2 <img style="width: 25px" src="common/flags/flags/24/United States of America(USA).png" alt="Japanese Dub"></a></h6>
-                                        <div class="text1" style="height: 1px"></div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a href="#"><span class="label label-danger">Adventure</span></a>
-                                                <a href="#"><span class="label label-primary">Action</span></a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-15 col-sm-12">
-                            <div class="well well-sm" style="background-color:#FFFFFF">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="#">
-                                            <img class="img-responsive" src="common/img/sims.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h6><a href="#">Grand Theft Auto V <img style="width: 25px" src="common/flags/flags/24/United States of America(USA).png" alt="Japanese Dub"></a></h6>
-                                        <div class="text1" style="height: 1px"></div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a href="#"><span class="label label-danger">Adventure</span></a>
-                                                <a href="#"><span class="label label-primary">Action</span></a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
 
-                    <div class="row" style="margin-left:-25px; padding-right:25px">
-                        <div class="col-md-15 col-sm-12">
-                            <div class="well well-sm" style="background-color:#FFFFFF">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="#">
-                                            <img class="img-responsive" src="common/img/gta.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h6><a href="#">Sims 4 <img style="width: 25px" src="common/flags/flags/24/United States of America(USA).png" alt="Japanese Dub"></a></h6>
-                                        <div class="text1" style="height: 1px"></div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a href="#"><span class="label label-danger">Adventure</span></a>
-                                                <a href="#"><span class="label label-primary">Action</span></a>
-                                            </div>
-                                        </div>
+                    <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isWalkthroughLoaded"></span>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-15 col-sm-12">
-                            <div class="well well-sm" style="background-color:#FFFFFF">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="#">
-                                            <img class="img-responsive" src="common/img/fallout3.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h6><a href="#">GTA San Andreas <img style="width: 25px" src="common/flags/flags/24/United States of America(USA).png" alt="Japanese Dub"></a></h6>
-                                        <div class="text1" style="height: 1px"></div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a href="#"><span class="label label-default">Plattformer</span></a>
-                                                <a href="#"><span class="label label-primary">Action</span></a>
-                                            </div>
-                                        </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-15 col-sm-12">
-                            <div class="well well-sm" style="background-color:#FFFFFF">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="#">
-                                            <img class="img-responsive" src="common/img/gta.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h6><a href="#">Bioshock Infinite <img style="width: 25px" src="common/flags/flags/24/United States of America(USA).png" alt="Japanese Dub"></a></h6>
-                                        <div class="text1" style="height: 1px"></div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a href="#"><span class="label label-warning">Shooter</span></a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-15 col-sm-12">
-                            <div class="well well-sm" style="background-color:#FFFFFF">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="#">
-                                            <img class="img-responsive" src="common/img/sims.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h6><a href="#">Fallout 3 <img style="width: 25px" src="common/flags/flags/24/United States of America(USA).png" alt="Japanese Dub"></a></h6>
-                                        <div class="text1" style="height: 1px"></div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a href="#"><span class="label label-danger">Adventure</span></a>
-                                                <a href="#"><span class="label label-primary">Action</span></a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-15 col-sm-12">
-                            <div class="well well-sm" style="background-color:#FFFFFF">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="#">
-                                            <img class="img-responsive" src="common/img/fallout3.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h6><a href="#">Grand Theft Auto V <img style="width: 25px" src="common/flags/flags/24/United States of America(USA).png" alt="Japanese Dub"></a></h6>
-                                        <div class="text1" style="height: 1px"></div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a href="#"><span class="label label-danger">Adventure</span></a>
-                                                <a href="#"><span class="label label-primary">Action</span></a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
 
                     <div class="col-md-12">
 
