@@ -17,7 +17,7 @@
     angular.module('gameApp').
     constant('SeatEatsConstants', {
 
-      "AppUrl":"http://seateats.net/upload/",
-      "AppUrlApi":"http://seateats.net/upload/php_api/",
+      "AppUrl":"http://localhost:8000/",
+      "AppUrlApi":"http://127.0.0.1:8000/api/",
     });
 })();

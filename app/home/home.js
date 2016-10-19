@@ -3,12 +3,43 @@
 angular.module('gameApp')
 
 
-.controller('HomeCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+.controller('HomeCtrl', ['$scope','SeatEatsConstants','$state','homeService',function($scope,SeatEatsConstants,$state,homeService)
 {
 
+    $scope.isLetsplayUpdateLoaded=false;
+    $scope.isGamesUpdateLoaded=false;
+    $scope.isGamesFeedLoaded=false;
 
 
 
+
+    homeService.getGamesUpdate().then(function(response)
+    {
+        console.log(response);
+        $scope.isLetsplayLoaded=false;
+
+
+
+
+    });
+    homeService.getGamesFeed().then(function(response)
+    {
+        console.log(response);
+        $scope.isLetsplayLoaded=false;
+
+
+
+
+    });
+    homeService.getLetsplayUpdate().then(function(response)
+    {
+        console.log(response);
+        $scope.isLetsplayLoaded=false;
+
+
+
+
+    });
 
 
 

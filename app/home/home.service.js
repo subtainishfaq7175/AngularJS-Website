@@ -6,10 +6,18 @@ angular.module("gameApp").factory('homeService',['$http','SeatEatsConstants', fu
 
     var home = {};
 
-    home.getRepoList= function ()
+    home.getGamesUpdate= function ()
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'getRepoList.php');
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesupdate');
+        return promise;
+    };
+
+
+    home.getLetsplayFeed= function ()
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'lestplayfeed');
         return promise;
     };
     home.createRepo= function (index)
