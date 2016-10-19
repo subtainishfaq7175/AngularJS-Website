@@ -15,6 +15,9 @@
                 </div>
             </div>
 
+            <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isGamesFeedLoaded"></span>
+
+
 
         </div>
     </section>
@@ -167,6 +170,8 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                         </div>
                     </div>
 
+                    <span us-spinner="{radius:30, width:8, length: 16}" class="well well-sm" ng-if="!isLetsplayUpdateLoaded"></span>
+
                 </div>
 
 
@@ -196,6 +201,8 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                             <!-- clear space -->
                             <div class="clearfix" style="height:10px;"></div>
                         </div>
+                        <span us-spinner="{radius:30, width:8, length: 16}" ng-if="!isGamesUpdateLoaded"></span>
+
 
                     </div>
 
@@ -214,7 +221,7 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
 
 
 
-                            <article class="post post-medium">
+                            <article class="post post-medium" ng-if="isNewsUpdateLoaded">
                                 <div class="row">
 
                                     <div class="col-md-5">
@@ -246,7 +253,10 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                                     </div>
                                 </div>
 
-                            </article>
+                            </article n>
+                            <span us-spinner="{radius:30, width:8, length: 16}" class="post post-medium" ng-if="!isNewsUpdateLoaded"></span>
+
+
                         </div>
                     </div>
                 </div>

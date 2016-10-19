@@ -13,25 +13,27 @@ angular.module("gameApp").factory('homeService',['$http','SeatEatsConstants', fu
         return promise;
     };
 
-
-    home.getLetsplayFeed= function ()
+    home.getLetsplayUpdate= function ()
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'lestplayfeed');
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesupdate');
         return promise;
     };
-    home.createRepo= function (index)
+
+    home.getNewsUpdate= function ()
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'createrepository.php?index='+index);
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesupdate');
         return promise;
     };
-    home.removeRepository= function (index)
+
+    home.getGamesFeed= function ()
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'removeRepository.php?index='+index);
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesupdate');
         return promise;
     };
+
 
     return home;
 

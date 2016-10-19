@@ -9,6 +9,7 @@ angular.module('gameApp')
     $scope.isLetsplayUpdateLoaded=false;
     $scope.isGamesUpdateLoaded=false;
     $scope.isGamesFeedLoaded=false;
+    $scope.isNewsUpdateLoaded=false;
 
 
 
@@ -32,6 +33,16 @@ angular.module('gameApp')
 
     });
     homeService.getLetsplayUpdate().then(function(response)
+    {
+        console.log(response);
+        $scope.isLetsplayLoaded=false;
+
+
+
+
+    });
+
+    homeService.getNeswsUpdate().then(function(response)
     {
         console.log(response);
         $scope.isLetsplayLoaded=false;

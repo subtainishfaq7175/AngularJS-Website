@@ -5,5 +5,6 @@ angular.module('gameApp', [
   'ngRoute',
   'gameApp.version',
   'kendo.directives',
-    'ui.router'
+    'ui.router',
+  'angularSpinner'
 ]);
