@@ -89,9 +89,19 @@
                     controller: 'gamesCtrl'
 
                 })
+            //
             .state('gamespost',
                 {
-                    url: '/games/gamespost',
+                    resolve: {
+                        // create an Object property called "messages"
+                        // which will later be used for Dependency Injection
+                        // inside our Controller. Inject any Services we need as usual.
+                        resolvedgame: function (gamespostService,$stateParams) {
+                            // Return our Service call, that returns a Promise
+                            return gamespostService.getGamesPost($stateParams.id);
+                        }
+                    },
+                    url: '/games/gamespost/:id',
                     templateUrl: 'gamespost/gamespost.html',
                     controller: 'gamespostCtrl'
 

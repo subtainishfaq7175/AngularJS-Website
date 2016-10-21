@@ -10,13 +10,13 @@
                         </li>
                         <li><a href="#">Games</a>
                         </li>
-                        <li class="active">ARK: Survival Evolved</li>
+                        <li class="active">{{post.title}}</li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>ARK: Survival Evolved</h1>
+                    <h1>{{post.title}}</h1>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                     <aside class="sidebar">
 
 
-                        <img class="img-responsive" src="common/img/cover/ark.jpg" alt="" style="width: 100%">
+                        <img class="img-responsive" ng-src="{{post.image_url}}" src="common/img/cover/ark.jpg" alt="" style="width: 100%">
 
                         <!-- Rating and Like Buttons -->
                         <div id="Rating" style="margin-top: 10px">
@@ -71,8 +71,8 @@
                         </div>
                         <div class="col-xs-9 col-md-9" style="margin-left: 30px">
                             <div class="text1">
-                                ARK: Survival Evolved
-                            </div>
+                            {{post.title}}
+                             </div>
                         </div>
                     </div>
                     <div class="text1" style="height: 5px"></div>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="col-xs-9 col-md-9" style="margin-left: 30px">
                             <div class="text1">
-                                <a href="#">Wild Card</a>
+                                <a href="#">{{post.studio}}</a>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="col-xs-9 col-md-9" style="margin-left: 30px">
                             <div class="text1">
-                                <a href="#">ARK</a>
+                                <a href="#">{{post.series}}</a>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                         </div>
                         <div class="col-xs-9 col-md-9" style="margin-left: 30px">
                             <div class="text1">
-                                Oct/31/2014
+                                {{post.release_date}}
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                         </div>
                         <div class="col-xs-9 col-md-9" style="margin-left: 30px">
                             <div class="text1">
-                                Windows Vista / Windows 7 / 8 / 10
+                                <p ng-repeat="(indexO, opsys) in post.os">{{opsys.title}}</p>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                             <strong>Languages:</strong>
                         </div>
                         <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                            <a href="#"><span class="label label-secondary ">English</span></a>
+                            <a href="#"><span class="label label-secondary " ng-repeat="(indexL, language) in post.languages">{{language.title}}</span></a>
                         </div>
                     </div>
                     <div class="text1" style="height: 5px"></div>
@@ -133,8 +133,7 @@
                             <strong>Category:</strong>
                         </div>
                         <div class="col-xs-9 col-md-7" style="margin-left: 30px">
-                            <a href="#"><span class="label label-pink">Game</span></a>
-                            <a href="#"><span class="label label-green">Steam</span></a>
+                            <a href="#"><span class="label label-pink" ng-repeat="(indexC, category) in post.categories">{{category.title}}</span></a>
                         </div>
                     </div>
                     <div class="text1" style="height: 5px"></div>
@@ -143,8 +142,7 @@
                             <strong>Genre:</strong>
                         </div>
                         <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                            <a href="#"><span class="label label-tertiary">Survival</span></a>
-                            <a href="#"><span class="label label-tertiary">Adventure</span></a>
+                            <a href="#"><span class="label label-tertiary" ng-repeat="(indexG, gen) in post.genre">{{gen.title}}</span></a>
                         </div>
                     </div>
                     <div class="text1" style="height: 5px"></div>
@@ -153,10 +151,8 @@
                             <strong>TAGS:</strong>
                         </div>
                         <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                            <a href="#"><span class="label label-dark">Dino</span></a>
-                            <a href="#"><span class="label label-dark">Survival</span></a>
-                            <a href="#"><span class="label label-dark">MMO</span></a>
-                        </div>
+                            <a href="#"><span class="label label-dark" ng-repeat="(indexT, tag) in post.tags">{{tag.title}}</span></a>
+
                     </div>
                     </p>
 
@@ -170,14 +166,14 @@
                 <div class="col-md-2" style="background: #ffffff; margin-top: -35px; padding-top: 35px">
 
                     <h4 class="heading-primary">Download Steam</h4>
-                    <a href="#" button type="button" class="btn btn-success btn-block btn-sm">Steam Version</a>
+                    <a href="{{post.steam_url}}" button type="button" class="btn btn-success btn-block btn-sm">Steam Version</a>
                     <hr>
                     <h4 class="heading-primary">Buy Game</h4>
                     <tr>
                         <td>
-                            <a href="#"><img style="width: 120px; margin: 5px" src="common/img/amazon.png" />
+                            <a href="{{post.amazon_url}}"><img style="width: 120px; margin: 5px" src="common/img/amazon.png" />
                             </a>
-                            <a href="#"><img style="width: 120px; margin: 5px" src="common/img/gamestop.png" />
+                            <a href="{{post.gamestop_url}}"><img style="width: 120px; margin: 5px" src="common/img/gamestop.png" />
                             </a>
                         </td>
                     </tr>
@@ -200,46 +196,12 @@
 
                     <div class="lightbox" data-plugin-options='{"delegate": "a", "type": "image", "gallery": {"enabled": true}, "mainClass": "mfp-with-zoom", "zoom": {"enabled": true, "duration": 300}}'>
                         <div class="owl-carousel stage-margin" data-plugin-options='{"items": 3, "margin": 10, "loop": false, "nav": true, "dots": false, "stagePadding": 40}'>
-                            <div>
+                            <div ng-repeat="(indexT, screen) in post.screen_images" >
                                 <a class="img-thumbnail img-thumbnail-hover-icon mb-xs mr-xs" href="common/img/screenshots/1.jpg">
-                                    <img class="img-responsive" src="common/img/screenshots/1.jpg" alt="Project Image">
+                                    <img class="img-responsive" ng-src="{{screen.image_url}}" src="common/img/screenshots/1.jpg" alt="Project Image">
                                 </a>
                             </div>
-                            <div>
-                                <a class="img-thumbnail img-thumbnail-hover-icon mb-xs mr-xs" href="common/img/screenshots/2.jpg">
-                                    <img class="img-responsive" src="common/img/screenshots/2.jpg" alt="Project Image">
-                                </a>
-                            </div>
-                            <div>
-                                <a class="img-thumbnail img-thumbnail-hover-icon mb-xs mr-xs" href="common/img/screenshots/3.jpg">
-                                    <img class="img-responsive" src="common/img/screenshots/3.jpg" alt="Project Image">
-                                </a>
-                            </div>
-                            <div>
-                                <a class="img-thumbnail img-thumbnail-hover-icon mb-xs mr-xs" href="common/img/screenshots/4.jpg">
-                                    <img class="img-responsive" src="common/img/screenshots/4.jpg" alt="Project Image">
-                                </a>
-                            </div>
-                            <div>
-                                <a class="img-thumbnail img-thumbnail-hover-icon mb-xs mr-xs" href="common/img/screenshots/5.jpg">
-                                    <img class="img-responsive" src="common/img/screenshots/5.jpg" alt="Project Image">
-                                </a>
-                            </div>
-                            <div>
-                                <a class="img-thumbnail img-thumbnail-hover-icon mb-xs mr-xs" href="common/img/screenshots/6.jpg">
-                                    <img class="img-responsive" src="common/img/screenshots/6.jpg" alt="Project Image">
-                                </a>
-                            </div>
-                            <div>
-                                <a class="img-thumbnail img-thumbnail-hover-icon mb-xs mr-xs" href="common/img/screenshots/7.jpg">
-                                    <img class="img-responsive" src="common/img/screenshots/7.jpg" alt="Project Image">
-                                </a>
-                            </div>
-                            <div>
-                                <a class="img-thumbnail img-thumbnail-hover-icon mb-xs mr-xs" href="common/img/screenshots/8.jpg">
-                                    <img class="img-responsive" src="common/img/screenshots/8.jpg" alt="Project Image">
-                                </a>
-                            </div>
+
                         </div>
                     </div>
 
@@ -261,22 +223,11 @@
                             <p>
                             <table class="table table-bordered table-sm">
                                 <tbody>
-                                <tr class="danger">
-                                    <th>File / Size</th>
-                                    <td>87.4 GB</td>
+                                <tr class="danger" ng-repeat="(indexR, oreq) in post.operational_requirements" >
+                                    <th>{{oreq.title}}</th>
+                                    <td>{{oreq.detail}}</td>
                                 </tr>
-                                <tr class="danger">
-                                    <th>CPU</th>
-                                    <td>2GHz or greater</td>
-                                </tr>
-                                <tr class="danger">
-                                    <th>Memory</th>
-                                    <td>8GB or greater</td>
-                                </tr>
-                                <tr class="danger">
-                                    <th>DirectX</th>
-                                    <td>11</td>
-                                </tr>
+
                                 </tbody>
                             </table>
                             </p>
@@ -295,7 +246,7 @@
 
                 <div style="width:100%; height:40px"> </div>
                 <h3 class="heading-primary">Trailer</h3>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/FW9vsrPWujI" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315"  src="{{post.trailer}}" frameborder="0" allowfullscreen></iframe>
 
                 <div style="width:100%; height:40px"> </div>
 
@@ -309,8 +260,7 @@
 
                 <div style="width:100%; height:40px"> </div>
                 <h3 class="heading-primary">Story</h3>
-                <p>As a man or woman stranded, naked, freezing, and starving on the unforgiving shores of a mysterious island called "ARK", use your skill and cunning to kill or tame and ride the plethora of leviathan dinosaurs and other primeval creatures roaming the land. Hunt, harvest resources, craft items, grow crops, research technologies, and build shelters to withstand the elements and store valuables, all while teaming up with (or preying upon) hundreds of other players to survive, dominate... and escape!</p>
-
+                <p>{{post.content}}</p>
                 <div style="width:100%; height:80px"> </div>
 
             </div>

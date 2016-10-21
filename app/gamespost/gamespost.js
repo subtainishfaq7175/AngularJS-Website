@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('gameApp').controller('gamespostCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+angular.module('gameApp').controller('gamespostCtrl', ['$scope','SeatEatsConstants','$state','resolvedgame',function($scope,SeatEatsConstants,$state,resolvedgame)
 {
 
+    $scope.post=resolvedgame.data;
 
 //Todo make content dynamic and and add resolve
 
