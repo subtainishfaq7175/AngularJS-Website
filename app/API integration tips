@@ -1,0 +1,45 @@
+gamesFeed:[{ image_url},....]
+
+/////////////////////
+lestplay:
+[
+{
+obj
+.
+.
+.
+episodes:
+{
+    {streams:[
+    {title:..
+     links:[{url , isYoutube,isDailyMotion,isVimeo},{},{},{},{},]}
+    ]},
+    {},
+    {},
+}
+
+}
+
+]
+
+
+/////////////////////
+
+gamesUpdate:
+{
+title:
+image_url:
+}
+
+//
+NewsUpdate:
+{
+image_url:
+title:
+content:
+release_date:
+tags:[{title},{},{},{},]
+
+}
+
+//pagination left

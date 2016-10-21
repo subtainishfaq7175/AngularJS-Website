@@ -37,20 +37,20 @@
                     <div class="col-md-9">
                         <div class="blog-posts">
 
-                            <article class="post post-medium" ng-if="isNewsLoaded">
+                            <article class="post post-medium" ng-if="isNewsLoaded"  ng-repeat="(indexP, news) in newsDetails">
                                 <div class="row">
 
                                     <div class="col-md-5">
                                         <div class="img-thumbnail">
-                                            <img class="img-responsive" src="common/img/news/new.jpg" alt="">
+                                            <img class="img-responsive" ng-src="{{news.image_url}}" src="common/img/news/new.jpg" alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-7">
 
                                         <div class="post-content">
 
-                                            <h2><a href="#/news/newspost">New Website</a></h2>
-                                            <p>This text must be shorten from the actual news</p>
+                                            <h2><a href="#/news/newspost/{{news._id}}">{{news.title}}</a></h2>
+                                            <p>{{news.content}}</p>
 
                                         </div>
                                     </div>
@@ -61,10 +61,10 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="post-meta">
-                                            <span><i class="fa fa-calendar"></i> January 10, 2013 </span>
-                                            <span><i class="fa fa-tag"></i> <a href="#">Launch</a>, <a href="#">News</a> </span>
+                                            <span><i class="fa fa-calendar"></i> {{news.release_date}} </span>
+                                            <span><i class="fa fa-tag"></i> <a href="#" ng-repeat="(indexT, tag) in news.tags">{{tag.title}}</a></span>
                                             <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-                                            <a href="#/news/newspost" class="btn btn-xs btn-primary pull-right">Read more...</a>
+                                            <a href="#/news/newspost/{{news._id}}" class="btn btn-xs btn-primary pull-right">Read more...</a>
                                         </div>
                                     </div>
                                 </div>

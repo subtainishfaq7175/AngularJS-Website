@@ -11,12 +11,23 @@ angular.module('gameApp')
     $scope.isGamesFeedLoaded=false;
     $scope.isNewsUpdateLoaded=false;
 
+    // Arrays to manage data
+    $scope.newsUpdate=[];
+    $scope.letsPlayUpdate=[];
+    $scope.gamesUpdate=[];
+    $scope.gamesFeed=[];
+
 
 
 
     homeService.getGamesUpdate().then(function(response)
     {
-        console.log(response);
+
+        for(var i=0; i<response.data.length;i++)
+        {
+            $scope.gamesUpdate.push(response.data[i]);
+        }
+
         $scope.isGamesUpdateLoaded=true;
 
 
@@ -28,7 +39,10 @@ angular.module('gameApp')
     {
         console.log(response);
         $scope.isGamesFeedLoaded=true;
-
+        for(var i=0; i<response.data.length;i++)
+        {
+            $scope.gamesFeed.push(response.data[i]);
+        }
 
 
 
@@ -37,6 +51,11 @@ angular.module('gameApp')
     {
         console.log(response);
         $scope.isLetsplayUpdateLoaded=true;
+
+        for(var i=0; i<response.data.length;i++)
+        {
+            $scope.letsPlayUpdate.push(response.data[i]);
+        }
 
 
 
@@ -48,6 +67,10 @@ angular.module('gameApp')
     {
         console.log(response);
         $scope.isNewsUpdateLoaded=true;
+        for(var i=0; i<response.data.length;i++)
+        {
+            $scope.newsUpdate.push(response.data[i]);
+        }
 
 
 

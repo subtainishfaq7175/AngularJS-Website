@@ -9,11 +9,16 @@ angular.module('gameApp')
 
 
 $scope.isNewsLoaded=false;
+$scope.newsDetails=[];
 
     newsService.getNewsList().then(function (response)
     {
-    console.log(response);
-    $scope.isNewsLoaded=true;
+        $scope.isNewsLoaded=true;
+        response=response.data;
+        for(var i=0;i<response.length;i++)
+        {
+            $scope.newsDetails.push(response[i]);
+        }
 
     });
 
