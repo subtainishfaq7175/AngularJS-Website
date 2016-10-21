@@ -48,3 +48,4 @@ tags:[{title},{},{},{},]
 //in letsplay.html div with class "sidebar" requires rechecking and verification of the two way binding
 //in letsplay.html div with class "popularPosts" requires rechecking and verification of the two way binding
 //channels details are not added in letsplaypost.html page
+// search and left panel of games not implemented yet.

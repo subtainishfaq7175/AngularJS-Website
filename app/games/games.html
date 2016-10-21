@@ -97,11 +97,11 @@
         </div>
         <div class="ca-wrapper" style="overflow: hidden; padding-top:0px">
 
-            <div class="ca-item ca-item-1" style="position: absolute; left: 0px;" ng-if="isGamesFeedLoaded">
+            <div class="ca-item ca-item-1" style="position: absolute; left: 0px;" ng-if="isGamesFeedLoaded" ng-repeat="(indexF, valueF) in gamesFeed">
                 <div class="ca-item-main">
                     <div class="ca-icon">
                         <a href="/Media/Show/3864/ark" class="preloader">
-                            <img src="common/img/media/ark.jpg" style="width:390px;height:294px;display: block; visibility: visible; opacity: 1;margin-left:-56px;margin-top:-4px;" alt="Kowaremono: Risa The Animation" title="Kowaremono: Risa The Animation">
+                            <img ng-src="{{valueF.image_url}}" src="common/img/media/ark.jpg" style="width:390px;height:294px;display: block; visibility: visible; opacity: 1;margin-left:-56px;margin-top:-4px;" alt="Kowaremono: Risa The Animation" title="Kowaremono: Risa The Animation">
                         </a>
                     </div>
                 </div>
@@ -196,16 +196,16 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9" ng-if="isGamesLoaded">
+                        <div class="col-md-9" ng-if="isGamesLoaded" ng-repeat="(indexF, valueF) in gamesList">
                             <div class="well well-sm" style="background-color:#FAFAFA">
                                 <div class="row">
                                     <div class="col-md-5">
                                         <a href="#/games/gamespost">
-                                            <img class="img-responsive" src="common/img/media/gta.jpg" style="margin:0px auto;width:100%;display:inline-block;">
+                                            <img ng-src="{{valueF.image_url}}"  class="img-responsive" src="common/img/media/gta.jpg" style="margin:0px auto;width:100%;display:inline-block;">
                                         </a>
                                     </div>
                                     <div class="col-md-7 section-box">
-                                        <h3><a href="#/games/gamespost">ARK: Survival Evolved-</a></h3>
+                                        <h3><a href="#/games/gamespost">{{valueF.title}}</a></h3>
                                         <p>
                                         <div class="text1" style="height: 2px; margin-bottom:-20px"></div>
                                         <div class="row">
@@ -213,8 +213,7 @@
                                                 <strong>Category:</strong>
                                             </div>
                                             <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-pink">Game</span></a>
-                                                <a href="#"><span class="label label-green">Early Access</span></a>
+                                                <a href="#"><span class="label label-pink" ng-repeat="(indexC, category) in valueF.categories">{{category.title}}</span></a>
                                             </div>
                                         </div>
                                         <div class="text1" style="height: 5px"></div>
@@ -223,8 +222,7 @@
                                                 <strong>Genre:</strong>
                                             </div>
                                             <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-tertiary">Survival</span></a>
-                                                <a href="#"><span class="label label-tertiary">Adventure</span></a>
+                                                <a href="#"><span class="label label-tertiary" ng-repeat="(indexG, genr) in valueF.genre">{{genr.title}}</span></a>
                                             </div>
                                         </div>
                                         <div class="text1" style="height: 5px"></div>
@@ -234,7 +232,7 @@
                                             </div>
                                             <div class="col-xs-9 col-md-9" style="margin-left: 30px">
                                                 <div class="crop">
-                                                    As a man or woman stranded, naked, freezing, and starving on the unforgiving shores of a mysterious island called "ARK", use your skill and cunning to kill or tame and ride the plethora of leviathan dinosaurs and other primeval creatures roaming the land. Hunt, harvest resources, craft items, grow crops, research technologies, and build shelters to withstand the elements and store valuables, all while teaming up with (or preying upon) hundreds of other players to survive, dominate... and escape!
+                                                    {{valueF.content}}
                                                 </div>
                                             </div>
                                         </div>
@@ -244,8 +242,7 @@
                                                 <strong>Languages:</strong>
                                             </div>
                                             <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-secondary ">Spain</span></a>
-                                                <a href="#"><span class="label label-secondary ">English</span></a>
+                                                <a href="#"><span class="label label-secondary" ng-repeat="(indexL, language) in valueF.languages">{{language.title}}</span></a>
                                             </div>
                                         </div>
                                         <div class="text1" style="height: 5px"></div>
@@ -254,12 +251,8 @@
                                                 <strong>TAGS:</strong>
                                             </div>
                                             <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-dark">Dino</span></a>
-                                                <a href="#"><span class="label label-dark">Survival</span></a>
-                                                <a href="#"><span class="label label-dark">EA</span></a>
-                                                <a href="#"><span class="label label-dark">Steam</span></a>
-                                                <a href="#"><span class="label label-dark">Island</span></a>
-                                                <a href="#"><span class="label label-dark">MMO</span></a>
+                                                <a href="#"><span class="label label-dark" ng-repeat="(indexL, tag) in valueF.tags">{{tag.title}}</span></a>
+
                                             </div>
                                         </div>
                                         </p>

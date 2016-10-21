@@ -5,16 +5,30 @@ angular.module('gameApp').controller('gamesCtrl', ['$scope','SeatEatsConstants',
 //Todo pagination , search and popular tabs
     $scope.isGamesLoaded=false;
     $scope.isGamesFeedLoaded=false;
+    $scope.gamesList=[];
+    $scope.gamesFeed=[];
 
     gamesService.getGamesList().then(function (response)
     {
-    $scope.isGamesLoaded=true;
         console.log(response);
+
+        for(var i=0; i<response.data.length;i++)
+        {
+            $scope.gamesList.push(response.data[i]);
+        }
+        $scope.isGamesLoaded=true;
+
 
     });
     gamesService.getGamesFeed().then(function (response)
     {
-    console.log(response);
+        console.log(response);
+
+        for(var i=0; i<response.data.length;i++)
+        {
+            $scope.gamesFeed.push(response.data[i]);
+        }
+
         $scope.isGamesFeedLoaded=true;
 
     })
