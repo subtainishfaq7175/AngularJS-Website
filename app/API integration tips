@@ -42,4 +42,8 @@ tags:[{title},{},{},{},]
 
 }
 
-//pagination left
+//pagination left on all pages
+//comments not handled yet .
+//in newpost.html div with class "post-content" requires rechecking and verification of the two way binding
+//in letsplay.html div with class "sidebar" requires rechecking and verification of the two way binding
+//in letsplay.html div with class "popularPosts" requires rechecking and verification of the two way binding

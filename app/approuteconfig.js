@@ -36,8 +36,18 @@
                 controller: 'NewsCtrl'
 
             })
-            .state('newspost',
+            .state('newspost/:id',
                 {
+
+                    resolve: {
+                        // create an Object property called "messages"
+                        // which will later be used for Dependency Injection
+                        // inside our Controller. Inject any Services we need as usual.
+                        resolvedNews: function (newspostService,$stateParams) {
+                            // Return our Service call, that returns a Promise
+                            return newspostService.getNewsPost($stateParams.id);
+                        }
+                    },
                     url: '/news/newspost',
                 templateUrl: 'newspost/newspost.html',
                 controller: 'NewspostCtrl'

@@ -113,17 +113,17 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9" ng-if="isLetsplayLoaded">
+                        <div class="col-md-9" ng-if="isLetsplayLoaded"  ng-repeat="(indexT, letsPlay) in letsPlayArray">
                             <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isLetsplayLoaded"></span>
                             <div class="well well-sm" style="background-color:#FAFAFA">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <a href="#/letsplay/playpost">
-                                            <img class="img-responsive" src="common/content/Uploads/Cover/gta-cover.jpg" style="margin:0px auto;width:100%;display:inline-block;">
+                                            <img class="img-responsive" ng-src="{{letsPlay.image_url}}" src="common/content/Uploads/Cover/gta-cover.jpg" style="margin:0px auto;width:100%;display:inline-block;">
                                         </a>
                                     </div>
                                     <div class="col-md-8 section-box">
-                                        <h3><a href="#/letsplay/playpost">Grand Theft Auto V</a></h3>
+                                        <h3><a href="#/letsplay/playpost">{{letsPlay.title}}</a></h3>
                                         <p>
                                         <div class="text1" style="height: 2px"></div>
                                         <div class="row">
@@ -137,7 +137,7 @@
                                                 <strong>Released:</strong>
                                             </div>
                                             <div class="col-xs-9 col-md-5" style="margin-left: 30px">
-                                                May 19th, 2015
+                                                {{letsPlay.release_date }}
                                             </div>
                                         </div>
                                         <div class="text1" style="height: 5px"></div>
@@ -146,7 +146,7 @@
                                                 <strong>Description:</strong>
                                             </div>
                                             <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                Nine years after a botched robbery in Ludendorff, North Yankton, former bank robber Michael Townley lives under witness protection with his family in Los Santos, San Andreas, under the alias Michael De Santa.
+                                                {{letsPlay.content }}
                                             </div>
                                         </div>
                                         <div class="text1" style="height: 5px"></div>
@@ -166,10 +166,7 @@
                                                 <strong>TAGS:</strong>
                                             </div>
                                             <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-dark">action</span></a>
-                                                <a href="#"><span class="label label-dark">shooter</span></a>
-                                                <a href="#"><span class="label label-dark">online</span></a>
-                                                <a href="#"><span class="label label-dark">gta</span></a>
+                                                <a href="#"><span class="label label-dark" ng-repeat="(indexT, tag) in letsPlay.tags">tag.title</span></a>
                                             </div>
                                         </div>
                                         </p>
@@ -506,10 +503,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-if="isLetsplayLoaded">
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src=common/content/Uploads/Cover/gta-cover.jpg />">Grand Theft Auto V</a>
+                    <tr ng-if="isLetsplayLoaded" ng-repeat="(indexT, letsPlay) in letsPlayArray">
+                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src={{letsPlay.image_url}}">{{letsPlay.title}}</a>
                         </td>
-                        <td>15/06/2009</td>
+                        <td>{{letsPlay.release_date}}</td>
                     </tr>
                     <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isLetsplayLoaded"></span>
 

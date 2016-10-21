@@ -12,10 +12,16 @@ angular.module('gameApp')
 
 $scope.isTable=false;
 $scope.isLetsplayLoaded=false;
+$scope.letsPlayArray = [];
 
 letsplayService.getLetsplayList().then(function(response)
 {
-    console.log(response);
+
+    for(var i=0; i<response.data.length;i++)
+    {
+        $scope.letsPlayArray.push(response.data[i]);
+    }
+
     $scope.isLetsplayLoaded=true;
 
     });
