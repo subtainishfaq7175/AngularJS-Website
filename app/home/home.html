@@ -105,12 +105,14 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                                         <td>
                                             {{stream.title}}
                                         </td>
-                                        <td style="text-align: right"  ng-repeat="(indexC, link) in stream.stream_links">
-                                            <a rel="nofollow" href="{{link.url}}" target="_blank">
+                                        <td style="text-align: right"  >
+                                            <div ng-repeat="(indexC, link) in stream.stream_links">
+                                            <a rel="nofollow" href="{{link.url}}" target="_blank" >
                                                 <img ng-if="link.isYoutube" style="width: 24px; height: 24px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
                                                 <img ng-if="link.isDailymotion" style="width: 24px; height: 24px" src="http://static1.dmcdn.net/images/dailymotion-logo-ogtag.png.v2779e025da411e7f1" />
                                                 <img ng-if="link.isVimeo" style="width: 24px; height: 24px" src="http://filmmakerseo.com/vimeo/vimeologo.png"
                                             </a>
+                                            </div>
                                         </td>
                                     </tr>
 

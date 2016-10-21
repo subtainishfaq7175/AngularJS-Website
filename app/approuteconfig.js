@@ -36,7 +36,7 @@
                 controller: 'NewsCtrl'
 
             })
-            .state('newspost/:id',
+            .state('newspost',
                 {
 
                     resolve: {
@@ -48,7 +48,7 @@
                             return newspostService.getNewsPost($stateParams.id);
                         }
                     },
-                    url: '/news/newspost',
+                    url: '/news/newspost/:id',
                 templateUrl: 'newspost/newspost.html',
                 controller: 'NewspostCtrl'
 
@@ -61,8 +61,16 @@
 
             })
             .state('letsplaypost',
-                {
-                    url: '/letsplay/playpost',
+                {resolve: {
+                    // create an Object property called "messages"
+                    // which will later be used for Dependency Injection
+                    // inside our Controller. Inject any Services we need as usual.
+                    resolvedLetsplay: function (letsplaypostService,$stateParams) {
+                        // Return our Service call, that returns a Promise
+                        return letsplaypostService.getLetsplayPost($stateParams.id);
+                    }
+                },
+                    url: '/letsplay/playpost/:id',
                 templateUrl: 'letsplaypost/letsplaypost.html',
                 controller: 'letsPlayPostCtrl'
 

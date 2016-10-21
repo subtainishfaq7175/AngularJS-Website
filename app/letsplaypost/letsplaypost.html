@@ -9,13 +9,13 @@
                         </li>
                         <li><a href="#">Let's Play</a>
                         </li>
-                        <li class="active">Grand Theft Auto V</li>
+                        <li class="active">{{post.title}}</li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Grand Theft Auto V</h1>
+                    <h1>{{post.title}}</h1>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="col-md-4" style="background: #ffffff; margin-top: -24px; padding-top: 24px">
                 <aside class="sidebar">
 
-                    <img class="img-responsive" src="common/content/Uploads/Cover/gta-cover.jpg" alt="" style="width: 100%">
+                    <img class="img-responsive" ng-src="{{post.image_url}}" src="common/content/Uploads/Cover/gta-cover.jpg" alt="" style="width: 100%">
                     <div id="Rating" style="margin-top: 10px">
                         <div class="progress progress-sm" style="height: 5px; margin-bottom: 5px">
                             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
@@ -45,14 +45,7 @@
 
                     <h5 class="heading-primary">Tags</h5>
 
-                    <a href="#"><span class="label label-dark">gta</span></a>
-                    <a href="#"><span class="label label-dark">cars</span></a>
-                    <a href="#"><span class="label label-dark">shooter</span></a>
-                    <a href="#"><span class="label label-dark">rockstar</span></a>
-                    <a href="#"><span class="label label-dark">heist</span></a>
-                    <a href="#"><span class="label label-dark">dog</span></a>
-                    <a href="#"><span class="label label-dark">gun</span></a>
-                    <a href="#"><span class="label label-dark">online</span></a>
+                    <a href="#"><span class="label label-dark" ng-repeat="(indexT, tag) in post.tags">tag.title</span></a>
 
                     <hr />
                     <h5 class="heading-primary">Titles</h5>
@@ -61,7 +54,7 @@
                             <strong>Short:</strong>
                         </div>
                         <div class="col-md-7">
-                            GTA V, GTA 5
+                           <p ng-repeat="(indexT, shortTitle) in post.short_titles" >{{shortTitle.title}}</p>
                         </div>
                     </div>
                     <div class="clearfix" style="height: 5px"></div>
@@ -70,7 +63,7 @@
                             <strong>Alternative:</strong>
                         </div>
                         <div class="col-md-7">
-                            GTA V
+                            <p ng-repeat="(indexT, shortTitle) in post.alternative_titles">{{shortTitle.title}}</p>
                         </div>
                     </div>
                     <div class="clearfix" style="height: 5px"></div>
@@ -81,7 +74,7 @@
                             <strong>Airing:</strong>
                         </div>
                         <div class="col-md-7">
-                            26. December 2014
+                            {{post.release_date}}
                         </div>
                     </div>
                     <div class="clearfix" style="height: 5px"></div>
@@ -90,7 +83,7 @@
                             <strong>Season:</strong>
                         </div>
                         <div class="col-md-7">
-                            Winter, 2014
+                            {{post.season}}
                         </div>
                     </div>
                     <div class="clearfix" style="height: 5px"></div>
@@ -108,7 +101,7 @@
                             <strong>Length:</strong>
                         </div>
                         <div class="col-md-7">
-                            30 Min
+                            {{post.length}} Min
                         </div>
                     </div>
                     <div class="clearfix" style="height: 5px"></div>
@@ -117,7 +110,7 @@
                             <strong>Genre:</strong>
                         </div>
                         <div class="col-md-7">
-                            Shooter, Action
+                            <p ng-repeat="(indexT, shortTitle) in post.genre">{{shortTitle.title}}</p>
                         </div>
                     </div>
                     <div class="clearfix" style="height: 5px"></div>
@@ -141,39 +134,9 @@
                         <h4 class="heading-primary">Pictures</h4>
                         <div class="lightbox mb-lg" data-plugin-options='{"delegate": "a", "type": "image", "gallery": {"enabled": true}}'>
                             <div class="owl-carousel stage-margin rounded-nav" data-plugin-options='{"items": 4, "margin": 10, "loop": false, "nav": true, "dots": false, "stagePadding": 40}'>
-                                <div>
+                                <div ng-repeat="(indexT, screen) in post.screen_images" >
                                     <a class="img-thumbnail mb-xs mr-xs" href="common/content/Uploads/Screens/1.jpg">
-                                        <img alt="" class="img-responsive img-rounded" src="common/content/Uploads/Screens/1.jpg" style="height: 120px">
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="img-thumbnail mb-xs mr-xs" href="common/content/Uploads/Screens/2.jpg">
-                                        <img alt="" class="img-responsive img-rounded" src="common/content/Uploads/Screens/2.jpg" style="height: 120px">
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="img-thumbnail mb-xs mr-xs" href="common/content/Uploads/Screens/3.jpg">
-                                        <img alt="" class="img-responsive img-rounded" src="common/content/Uploads/Screens/3.jpg" style="height: 120px">
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="img-thumbnail mb-xs mr-xs" href="common/content/Uploads/Screens/5.jpg">
-                                        <img alt="" class="img-responsive img-rounded" src="common/content/Uploads/Screens/5.jpg" style="height: 120px">
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="img-thumbnail mb-xs mr-xs" href="common/content/Uploads/Screens/2.jpg">
-                                        <img alt="" class="img-responsive img-rounded" src="common/content/Uploads/Screens/2.jpg" style="height: 120px">
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="img-thumbnail mb-xs mr-xs" href="common/content/Uploads/Screens/1.jpg">
-                                        <img alt="" class="img-responsive img-rounded" src="common/content/Uploads/Screens/1.jpg" style="height: 120px">
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="img-thumbnail mb-xs mr-xs" href="common/content/Uploads/Screens/4.jpg">
-                                        <img alt="" class="img-responsive img-rounded" src="common/content/Uploads/Screens/4.jpg" style="height: 120px">
+                                        <img alt="" class="img-responsive img-rounded" ng-src="{{screen.image_url}}" src="common/content/Uploads/Screens/1.jpg" style="height: 120px">
                                     </a>
                                 </div>
                             </div>
@@ -188,8 +151,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p>Grand Theft Auto V is an open world action-adventure video game developed by Rockstar North and published by Rockstar Games.</p>
-                        <p>Nine years after a botched robbery in Ludendorff, North Yankton, former bank robber Michael Townley lives under witness protection with his family in Los Santos, San Andreas, under the alias Michael De Santa. He meets and later befriends a gangbanger Franklin Clinton when the latter attempts to fraudulently repossess his son's car on behalf of a corrupt Armenian car salesman. When Michael discovers his wife Amanda has been sleeping with her tennis coach, he chases the coach to a mansion and destroys it out of anger. The mansion's owner turns out to be the girlfriend of Mexican drug lord Martin Madrazo, who demands compensation under the threat of further violence. Michael goes back into a life of crime to obtain the money and enlists Franklin as an accomplice. Together, they perform a jewellery shop heist to help pay the debt. Michael's sole surviving partner in the Ludendorff robbery, Trevor Philips, hears of the jewellery heist and realises that it was Michael's handiwork. The two reunite after Trevor tracks Michael down in Los Santos.</p>
+                        <p>
+                            {{post.description}}
+                        </p>
                     </div>
 
                 </div>
@@ -223,11 +187,11 @@
                     <!-- Release Accordion -->
                     <div class="col-md-12">
                         <div class="toggle toggle-dark" data-plugin-toggle="">
-                            <section class="toggle">
-                                <label>Episode 1</label>
+                            <section class="toggle" ng-repeat="(indexC, episode) in post.episodes">
+                                <label>episode.title</label>
                                 <div class="toggle-content">
                                     <table class="table table-striped">
-                                        <thead>
+                                      <!--  <thead>
                                         <tr>
                                             <td>
                                                 <h4 style="margin: 0px">Stream [720p]</h4>
@@ -237,125 +201,25 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        </thead>
+                                        </thead>-->
                                         <tbody>
-                                        <tr>
+                                        <tr ng-repeat="(indexC, stream) in episode.streams">
                                             <td>
-                                                <h4 style="margin: 0px">Stream [480p]</h4>
+                                                <h4 style="margin: 0px">{{stream.title}}</h4>
                                             </td>
                                             <td>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="http://static1.dmcdn.net/images/dailymotion-logo-ogtag.png.v2779e025da411e7f1" />
-                                                </a>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
-                                                </a>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="http://filmmakerseo.com/vimeo/vimeologo.png" />
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4 style="margin: 0px">Download [720p]</h4>
-                                            </td>
-                                            <td>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="http://filmmakerseo.com/vimeo/vimeologo.png" />
-                                                </a>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
-                                                </a>
+                                                <div ng-repeat="(indexC, link) in stream.stream_links">
+                                                    <a rel="nofollow" href="{{link.url}}" target="_blank" >
+                                                        <img ng-if="link.isYoutube" style="width: 24px; height: 24px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
+                                                        <img ng-if="link.isDailymotion" style="width: 24px; height: 24px" src="http://static1.dmcdn.net/images/dailymotion-logo-ogtag.png.v2779e025da411e7f1" />
+                                                        <img ng-if="link.isVimeo" style="width: 24px; height: 24px" src="http://filmmakerseo.com/vimeo/vimeologo.png"
+                                                    </a>
+                                                </div>
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
 
-
-                                </div>
-                            </section>
-                            <section class="toggle">
-                                <label>Episode 2</label>
-                                <div class="toggle-content">
-                                    <table class="table table-striped">
-                                        <thead>
-                                        <tr>
-                                            <td>
-                                                <h4 style="margin: 0px">Stream [720p]</h4>
-                                            </td>
-                                            <td>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <h4 style="margin: 0px">Stream [480p]</h4>
-                                            </td>
-                                            <td>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="http://static1.dmcdn.net/images/dailymotion-logo-ogtag.png.v2779e025da411e7f1" />
-                                                </a>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
-                                                </a>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="http://filmmakerseo.com/vimeo/vimeologo.png" />
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4 style="margin: 0px">Download [720p]</h4>
-                                            </td>
-                                            <td>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="http://filmmakerseo.com/vimeo/vimeologo.png" />
-                                                </a>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </section>
-                            <section class="toggle">
-                                <label>Episode 3</label>
-                                <div class="toggle-content">
-                                    <table class="table table-striped">
-                                        <thead>
-                                        <tr>
-                                            <td>
-                                                <h4 style="margin: 0px">Stream [720p]</h4>
-                                            </td>
-                                            <td>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <h4 style="margin: 0px">Stream [480p]</h4>
-                                            </td>
-                                            <td>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="http://static1.dmcdn.net/images/dailymotion-logo-ogtag.png.v2779e025da411e7f1" />
-                                                </a>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
-                                                </a>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="http://filmmakerseo.com/vimeo/vimeologo.png" />
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4 style="margin: 0px">Download [720p]</h4>
-                                            </td>
-                                            <td>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="http://filmmakerseo.com/vimeo/vimeologo.png" />
-                                                </a>
-                                                <a href="#"><img style="float:right; width: 24px; margin: 5px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
 
                                 </div>
                             </section>

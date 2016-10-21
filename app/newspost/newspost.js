@@ -8,7 +8,7 @@ angular.module('gameApp')
 
 //Todo make content dynamic and and add resolve
 
-   $scope.news= resolvedNews;
+   $scope.news= resolvedNews.data;
 
 
 

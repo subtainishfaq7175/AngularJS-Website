@@ -3,12 +3,12 @@
 angular.module('gameApp')
 
 
-.controller('letsPlayPostCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+.controller('letsPlayPostCtrl', ['$scope','SeatEatsConstants','$state','resolvedLetsplay',function($scope,SeatEatsConstants,$state,resolvedLetsplay)
 {
 //Todo make content dynamic and and add resolve
 
 
-
+$scope.post=resolvedLetsplay.data;
 
 
 
