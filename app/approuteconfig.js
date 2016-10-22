@@ -115,7 +115,16 @@
                 })
             .state('walkthroughpost',
                 {
-                    url: '/walkthrough/reader',
+                    resolve: {
+                        // create an Object property called "messages"
+                        // which will later be used for Dependency Injection
+                        // inside our Controller. Inject any Services we need as usual.
+                        resolvedWalkthrough: function (walkthroughpostService,$stateParams) {
+                            // Return our Service call, that returns a Promise
+                            return walkthroughpostService.getWalkthroughPost($stateParams.id);
+                        }
+                    },
+                    url: '/walkthrough/reader/:id',
                     templateUrl: 'walkthroughpost/walkthroughpost.html',
                     controller: 'walkthroughpostCtrl'
 

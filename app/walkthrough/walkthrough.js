@@ -5,10 +5,27 @@ angular.module('gameApp').controller('walkthroughCtrl', ['$scope','SeatEatsConst
 
     //todo add pagination ,tags and dyncamic data
 $scope.isWalkthroughLoaded = false;
+$scope.walkthroughList=[];
 
 walkthroughService.getWalkthroughList().then(function (response)
 {
-console.log(response);
+
+    var currRow=-1;
+
+    for(var i=0; i<response.data.length;i++)
+    {
+        if(i%5==0)
+        {
+
+            $scope.walkthroughList.push({rows:[]});
+            currRow++;
+
+        }
+        $scope.walkthroughList[currRow].rows.push(data[i]);
+
+    }
+
+
     $scope.isWalkthroughLoaded=true;
 });
 
