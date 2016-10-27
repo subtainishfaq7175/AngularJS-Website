@@ -7,16 +7,21 @@ angular.module('gameApp', [
   'kendo.directives',
     'ui.router',
   'angularSpinner'
-]).controller('mainCtrl', ['$scope','newsService',function($scope,newsService)
+]).controller('mainCtrl', ['$scope','newsService','homeService',function($scope,newsService,homeService)
 {
-  $scope.newslist;
+  $scope.newslist;$scope.letsplaylist;
 
   newsService.getNewsFeedF().then(function (response)
   {
 
     $scope.newslist=response.data;
 
-  })
+  });
+
+  homeService.getLetsplayUpdate().then(function (response) {
+
+    $scope.letsplaylist=response.data;
+  });
 
 
 }]);
