@@ -13,6 +13,13 @@ angular.module("gameApp").factory('calendarService',['$http','SeatEatsConstants'
         return promise;
     };
 
+    home.getGameByDateRange= function (dat1,dat2)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesrange?datstart='+dat1+"&datend="+dat2);
+        return promise;
+    };
+
     return home;
 
 }]);

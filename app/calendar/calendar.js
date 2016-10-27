@@ -3,14 +3,72 @@
 angular.module('gameApp').controller('calendarCtrl', ['$scope','SeatEatsConstants','$state','calendarService',function($scope,SeatEatsConstants,$state,calendarService)
 {
 
-
+    $scope.recentGames=[];
+    $scope.springGames=[];
+    $scope.autumnGames=[];
+    $scope.winterGames=[];
+    $scope.summerGames=[];
+    $scope.currentYear=new Date().getFullYear();
 $scope.dat=new Date((new Date).getTime() - 7 * 24 * 60 * 60 * 1000);
+//new Date((new Date).getTime() - 7 * 24 * 60 * 60 * 1000);
 
 
+    $scope.isRecentLoaded=false;
     calendarService.getGameByDateGte($scope.dat.toDateString()).then(function (response)
     {
+        $scope.isRecentLoaded=true;
+        $scope.recentGames=response.data;
 
-    })
+    });
+
+
+    var firstDay = (new Date(new Date().getFullYear(), 3, 1)).toDateString();
+    var lastDay = (new Date(new Date().getFullYear(), 6, 0)).toDateString();
+
+    $scope.isSpringLoaded=false;
+    calendarService.getGameByDateRange(firstDay,lastDay).then(function (response)
+    {
+
+        $scope.isSpringLoaded=true;
+        $scope.springGames=response.data; ;;
+    });
+
+    var firstDay = (new Date(new Date().getFullYear(), 6, 1)).toDateString();
+    var lastDay = (new Date(new Date().getFullYear(), 9, 0)).toDateString();
+
+    $scope.isSummerLoaded=false;
+    calendarService.getGameByDateRange(firstDay,lastDay).then(function (response)
+    {
+
+        $scope.isSummerLoaded=true;
+        $scope.summerGames=response.data; ;;
+    });
+
+
+    var firstDay =( new Date(new Date().getFullYear(), 0, 1)).toDateString();
+    var lastDay =( new Date(new Date().getFullYear(), 3, 0)).toDateString();
+    ;;
+
+
+    $scope.isWinterLoaded=false;
+    calendarService.getGameByDateRange(firstDay,lastDay).then(function (response)
+    {
+        $scope.isWinterLoaded=true;
+        $scope.winterGames=response.data; ;;
+    });
+
+    var firstDay =( new Date(new Date().getFullYear(), 9, 1)).toDateString();
+    var lastDay =( new Date(new Date().getFullYear()+1, 0, 0)).toDateString();
+    ;
+
+
+    $scope.isAutumnLoaded=false;
+    calendarService.getGameByDateRange(firstDay,lastDay).then(function (response)
+    {
+        $scope.autumnGames=response.data; ;;
+        $scope.isAutumnLoaded=true;
+        debugger;
+    });
 
 
 

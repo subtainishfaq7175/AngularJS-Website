@@ -13,6 +13,13 @@ angular.module("gameApp").factory('newsService',['$http','SeatEatsConstants', fu
         return promise;
     };
 
+    home.getNewsFeedF= function ()
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'newsupdatef');
+        return promise;
+    };
+
 
     return home;
 

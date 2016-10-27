@@ -37,19 +37,20 @@
                 <!-- Row! -->
                 <div class="row">
 
-                    <div class="col-md-2">
+                    <div class="col-md-2" ng-if="isRecentLoaded" ng-repeat=" (indexP, game) in recentGames">
                                 <span class="thumb-info thumb-info-hide-wrapper-bg">
 												<span class="thumb-info-wrapper">
-													<a href="#"><img height="155" width="220" src="common/img/gta.jpg" class="img-responsive" alt=""></a>
+													<a href="#/games/gamespost/{{game._id}}"><img height="155" width="220" ng-src="{{game.image_url}}" class="img-responsive" alt=""></a>
 												</span>
                                 <span class="thumb-info-caption">
 													<span class="thumb-info-caption-text"><strong>The Sims 4</strong></span>
                                 <span class="thumb-info-social-icons">
-														18/02/2016
+														{{game.release_date}}
 													</span>
                                 </span>
                                 </span>
                     </div>
+                    <span us-spinner="{radius:10, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isRecentLoaded"></span>
 
                 </div>
                 <!-- Row End! 6 in 1 Row! New Row must start every 6 Thumbs with adding 'clear space' after the end of each row!. -->
@@ -58,8 +59,24 @@
                 <div style="width:100%; height:20px"> </div>
 
                 <!-- New Category -->
-                <h3 class="heading-primary">Winter 2016</h3>
+                <h3 class="heading-primary">Spring {{currentYear}}</h3>
                 <div class="row">
+
+
+                    <div class="col-md-2" ng-if="isSpringLoaded" ng-repeat=" (indexP, game) in springGames">
+                                  <span class="thumb-info thumb-info-hide-wrapper-bg">
+												<span class="thumb-info-wrapper">
+													<a href="#/games/gamespost/{{game._id}}"><img height="155" width="220" ng-src="{{game.image_url}}" class="img-responsive" alt=""></a>
+												</span>
+                                <span class="thumb-info-caption">
+													<span class="thumb-info-caption-text"><strong>The Sims 4</strong></span>
+                                <span class="thumb-info-social-icons">
+														{{game.release_date}}
+													</span>
+                                </span>
+                                </span>
+                    </div>
+                    <span us-spinner="{radius:10, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isSpringLoaded"></span>
 
 
 
@@ -70,47 +87,83 @@
 
                 <!-- New Row! -->
                 <div class="row">
-                    <div class="col-md-2">
-                                <span class="thumb-info thumb-info-hide-wrapper-bg">
-												<span class="thumb-info-wrapper">
-													<a href="#"><img height="155" width="220" src="common/img/sims.jpg" class="img-responsive" alt=""></a>
-												</span>
-                                <span class="thumb-info-caption">
-													<span class="thumb-info-caption-text"><strong>The Sims 4</strong></span>
-                                <span class="thumb-info-social-icons">
-														18/02/2016
-													</span>
-                                </span>
-                                </span>
-                    </div>
-
-
                 </div>
                 <!-- clear space -->
                 <hr>
                 <div style="width:100%; height:20px"></div>
 
                 <!-- New Category -->
-                <h3 class="heading-primary">Spring 2016</h3>
+                <h3 class="heading-primary">Summer {{currentYear}}</h3>
                 <div class="row">
-
-
-                    <div class="col-md-2">
-                                <span class="thumb-info thumb-info-hide-wrapper-bg">
+                    <div class="col-md-2" ng-if="isSummerLoaded" ng-repeat=" (indexP, game) in summerGames">
+                             <span class="thumb-info thumb-info-hide-wrapper-bg">
 												<span class="thumb-info-wrapper">
-													<a href="#"><img height="155" width="220" src="common/img/sims.jpg" class="img-responsive" alt=""></a>
+													<a href="#/games/gamespost/{{game._id}}"><img height="155" width="220" ng-src="{{game.image_url}}" class="img-responsive" alt=""></a>
 												</span>
                                 <span class="thumb-info-caption">
 													<span class="thumb-info-caption-text"><strong>The Sims 4</strong></span>
                                 <span class="thumb-info-social-icons">
-														18/02/2016
+														{{game.release_date}}
 													</span>
                                 </span>
                                 </span>
                     </div>
+                    <span us-spinner="{radius:10, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isSummerLoaded"></span>
+
 
 
                 </div>
+
+                <!-- clear space -->
+                <div style="width:100%; height:50px"></div>
+
+
+  <!-- New Category -->
+                <h3 class="heading-primary">Autumn {{currentYear}}</h3>
+                <div class="row">
+                    <div class="col-md-2" ng-if="isAutumnLoaded" ng-repeat=" (indexP, game) in autumnGames">
+                             <span class="thumb-info thumb-info-hide-wrapper-bg">
+												<span class="thumb-info-wrapper">
+													<a href="#/games/gamespost/{{game._id}}"><img height="155" width="220" ng-src="{{game.image_url}}" class="img-responsive" alt=""></a>
+												</span>
+                                <span class="thumb-info-caption">
+													<span class="thumb-info-caption-text"><strong>The Sims 4</strong></span>
+                                <span class="thumb-info-social-icons">
+														{{game.release_date}}
+													</span>
+                                </span>
+                                </span>
+                    </div>
+                    <span us-spinner="{radius:10, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isAutumnLoaded"></span>
+
+
+
+                </div>
+
+                <!-- clear space -->
+                <div style="width:100%; height:50px"></div>
+  <!-- New Category -->
+                <h3 class="heading-primary">Winter {{currentYear}}</h3>
+                <div class="row">
+                    <div class="col-md-2" ng-if="isWinterLoaded" ng-repeat=" (indexP, game) in winterGames">
+                                  <span class="thumb-info thumb-info-hide-wrapper-bg">
+												<span class="thumb-info-wrapper">
+													<a href="#/games/gamespost/{{game._id}}"><img height="155" width="220" ng-src="{{game.image_url}}" class="img-responsive" alt=""></a>
+												</span>
+                                <span class="thumb-info-caption">
+													<span class="thumb-info-caption-text"><strong>The Sims 4</strong></span>
+                                <span class="thumb-info-social-icons">
+														{{game.release_date}}
+													</span>
+                                </span>
+                                </span>
+                    </div>
+                    <span us-spinner="{radius:10, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isWinterLoaded"></span>
+
+
+
+                </div>
+
                 <!-- clear space -->
                 <div style="width:100%; height:50px"></div>
 
