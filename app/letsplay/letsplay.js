@@ -17,11 +17,10 @@ $scope.letsPlayArray = [];
 letsplayService.getLetsplayList().then(function(response)
 {
 
-    for(var i=0; i<response.data.length;i++)
+    for(var i=0; i<response.data.docs.length;i++)
     {
-        $scope.letsPlayArray.push(response.data[i]);
+        $scope.letsPlayArray.push(response.data.docs[i]);
     }
-
     $scope.isLetsplayLoaded=true;
 
     });

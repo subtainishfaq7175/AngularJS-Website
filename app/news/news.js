@@ -15,11 +15,12 @@ $scope.newsDetails=[];
     {
         $scope.isNewsLoaded=true;
         response=response.data;
-        for(var i=0;i<response.length;i++)
-        {
-            $scope.newsDetails.push(response[i]);
-        }
+        debugger;
 
+        for(var i=0;i<response.docs.length;i++)
+        {
+            $scope.newsDetails.push(response.docs[i]);
+        }
     });
 
 

@@ -38,6 +38,7 @@ angular.module('gameApp')
     homeService.getGamesFeed().then(function(response)
     {
         console.log(response);
+        debugger;
         $scope.isGamesFeedLoaded=true;
         for(var i=0; i<response.data.length;i++)
         {

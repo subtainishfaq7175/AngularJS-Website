@@ -118,12 +118,12 @@
                             <div class="well well-sm" style="background-color:#FAFAFA">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <a href="#/letsplay/playpost">
-                                            <img class="img-responsive" ng-src="{{letsPlay.image_url}}" src="common/content/Uploads/Cover/gta-cover.jpg" style="margin:0px auto;width:100%;display:inline-block;">
+                                        <a href="#/letsplay/playpost/{{letsPlay._id}}">
+                                            <img class="img-responsive" ng-src="{{letsPlay.image_url}}" style="margin:0px auto;width:100%;display:inline-block;">
                                         </a>
                                     </div>
                                     <div class="col-md-8 section-box">
-                                        <h3><a href="#/letsplay/playpost">{{letsPlay.title}}</a></h3>
+                                        <h3><a href="#/letsplay/playpost/{{letsPlay._id}}">{{letsPlay.title}}</a></h3>
                                         <p>
                                         <div class="text1" style="height: 2px"></div>
                                         <div class="row">
@@ -166,7 +166,7 @@
                                                 <strong>TAGS:</strong>
                                             </div>
                                             <div class="col-xs-9 col-md-9" style="margin-left: 30px">
-                                                <a href="#"><span class="label label-dark" ng-repeat="(indexT, tag) in letsPlay.tags">tag.title</span></a>
+                                                <a href="#"><span class="label label-dark" ng-repeat="(indexT, tag) in letsPlay.tags">{{tag.title}}</span></a>
                                             </div>
                                         </div>
                                         </p>
@@ -281,7 +281,7 @@
                                     <li>
                                         <div class="post-image">
                                             <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
+                                                <a href="#/letsplay/playpost/">
                                                     <img src="common/img/favorites/1.jpg" alt="" style="width:75px;">
                                                 </a>
                                             </div>
@@ -504,7 +504,7 @@
                     </thead>
                     <tbody>
                     <tr ng-if="isLetsplayLoaded" ng-repeat="(indexT, letsPlay) in letsPlayArray">
-                        <td><a href="#" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src={{letsPlay.image_url}}">{{letsPlay.title}}</a>
+                        <td><a href="#/letsplay/playpost/{{letsPlay._id}}" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src={{letsPlay.image_url}}">{{letsPlay.title}}</a>
                         </td>
                         <td>{{letsPlay.release_date}}</td>
                     </tr>

@@ -9,7 +9,7 @@
                 <div class="ca-item-main">
                     <div class="ca-icon">
                         <a href="#" class="preloader">
-                            <img ng-src="{{valueF.image_url}}" src="common/content/Uploads/Cover/gta-cover.jpg" style="width:280px;height:392px" alt="game title" title="game title" style="display: block; visibility: visible; opacity: 1;">
+                            <img ng-src="{{valueF.image_url}}"  style="width:280px;height:392px" alt="game title" title="game title" style="display: block; visibility: visible; opacity: 1;">
                         </a>
                     </div>
                 </div>
@@ -83,25 +83,25 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                 <div class="clearfix" style="height:50px;"></div>
 
                 <div class="col-md-12">
-                    <div class="well well-sm" style="background-color:#FFFFFF"  ng-if="isLetsplayUpdateLoaded"  ng-repeat="(indexP, valueP) in letsplayUpdate">
+                    <div class="well well-sm" style="background-color:#FFFFFF"  ng-if="isLetsplayUpdateLoaded"  ng-repeat="(indexP, valueP) in letsPlayUpdate">
                         <div class="row">
                             <div class="col-md-4">
                                 <a href="#/letsplay/playpost/{{valueP._id}}">
-                                    <img class="img-responsive" ng-src="{{valueP.image_url}}" src="common/content/Uploads/Cover/gta-cover.jpg" style="margin:0px auto;width:100%;display:inline-block;">
+                                    <img class="img-responsive" ng-src="{{valueP.image_url}}"style="margin:0px auto;width:100%;display:inline-block;">
                                 </a>
                             </div>
                             <div class="col-md-8 section-box">
                                 <h4>{{valueP.title}} <img style="width: 20px" src="common/flags/flags/24/United States of America(USA).png" alt="English Dub"></h4>
-                                <table class="table table-striped table-bordered">
+                                <table class="table table-striped table-bordered" ng-repeat="(indexC, episode) in valueP.episodes">
                                     <thead>
-                                    <tr  ng-repeat="(indexC, episode) in valueP.episodes">
+                                    <tr  >
                                         <th colspan="2">
-                                            {{episode.episode_title}}
+                                            {{episode.title}}
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr ng-repeat="(indexC, stream) in episode.streams">
+                                    <tr ng-repeat="(indexl, stream) in episode.streams">
                                         <td>
                                             {{stream.title}}
                                         </td>
@@ -124,7 +124,7 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                                 <div class="text1" style="height: 5px"></div>
                                 <div class="row">
                                     <div class="col-xs-11 col-md-3">
-                                        <a href="#">
+                                        <a href="#/letsplay/playpost/{{valueP._id}}">
                                             <button type="button" class="btn btn-primary btn-md pull-right">View more</button>
                                         </a>
                                     </div>
@@ -167,9 +167,9 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                         <div  ng-if="isGamesUpdateLoaded"  ng-repeat="(indexP, valueP) in gamesUpdate">
                             <a href="#"><span class="thumb-info thumb-info-lighten thumb-info-bottom-info thumb-info-centered-icons">
 												<span class="thumb-info-wrapper">
-													<img ng-src="{{valueP.image_url}}" src="common/content/Uploads/Mods/ark.jpg" class="img-responsive" alt="">
+													<img ng-src="{{valueP.image_url}}"  class="img-responsive" alt="">
 													<span class="thumb-info-title">
-														<span class="thumb-info-inner">valueP.title</span>
+														<span class="thumb-info-inner">{{valueP.title}}</span>
 													</span>
 												</span>
 											</span></a>
@@ -202,7 +202,7 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
 
                                     <div class="col-md-5">
                                         <div class="img-thumbnail">
-                                            <img class="img-responsive" ng-src="{{newsUpdate[0].image_url}}" src="common/img/news/new.jpg" alt="">
+                                            <img class="img-responsive" ng-src="{{newsUpdate[0].image_url}}"  alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-7">
