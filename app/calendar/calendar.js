@@ -1,12 +1,16 @@
 'use strict';
 
-angular.module('gameApp').controller('calendarCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+angular.module('gameApp').controller('calendarCtrl', ['$scope','SeatEatsConstants','$state','calendarService',function($scope,SeatEatsConstants,$state,calendarService)
 {
 
 
+$scope.dat=new Date((new Date).getTime() - 7 * 24 * 60 * 60 * 1000);
 
 
+    calendarService.getGameByDateGte($scope.dat.toDateString()).then(function (response)
+    {
 
+    })
 
 
 
