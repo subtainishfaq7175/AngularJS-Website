@@ -1,23 +1,36 @@
 <div id="globalWrapper" role="main" class="main" style="background: #d9d9d9; margin-bottom:-12px; padding-bottom:1px;padding-top:15px">
     <section id="ca-container" class="ca-container">
         <div class="ca-nav">
-            <span class="ca-nav-prev">Previous</span><span class="ca-nav-next">Next</span>
+            <span class="ca-nav-prev" ng-click="slider.prev()">Previous</span><span class="ca-nav-next" ng-click="slider.next()">Next</span>
         </div>
-        <div class="ca-wrapper" style="overflow: hidden; padding-top:0px" >
+       <!-- <script type="text/ng-template" id="tpl.html">
+            <img ng-src="{{valueF.image_url}}" >
+            <h3>{{ valueF.title }}</h3>
+        </script>-->
+        <div class="ca-wrapper" style="overflow: hidden; margin-top:20px ;margin-left: 150px" >
 
-            <div class="ca-item ca-item-1" style="position: absolute; left: 0px;" ng-if="isGamesFeedLoaded"  ng-repeat="(indexF, valueF) in gamesFeed">
+       <!--     <div class="ca-item ca-item-1" style="position: absolute; left: 0px;" ng-if="isGamesFeedLoaded"  ng-repeat="(indexF, valueF) in gamesFeed">
                 <div class="ca-item-main">
                     <div class="ca-icon">
                         <a href="#" class="preloader">
-                            <img ng-src="{{valueF.image_url}}"  style="width:280px;height:392px" alt="game title" title="game title" style="display: block; visibility: visible; opacity: 1;">
                         </a>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
             <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isGamesFeedLoaded"></span>
 
 
+<!--
+            <slick ng-if="isGamesFeedLoaded" settings="slickConfig">
+                <div ng-repeat="(indexF, valueF) in gamesFeed">
+                    <div class="" ng-include="'tpl.html'"></div>
+                </div>
+            </slick>-->
+            <simple-slider ng-if="isGamesFeedLoaded" slider-instance="slider" current-slide="actualValue" style="width:612px; height:612px;  align-content: center;" auto-play="false">
+                <img ng-repeat="(indexF, valueF) in gamesFeed" ng-src="{{valueF.image_url}}"  style="width:612px;height:400px;" align="middle"/>
+
+            </simple-slider>
 
         </div>
     </section>
@@ -51,32 +64,32 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
 
 
                 <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default active">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked> All Languages
+                    <label class="btn btn-default active" >
+                        <button ng-click="letsplayUpdate('all')" > All Languages</button>
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" name="options" id="option2" autocomplete="off"> English
+                        <button ng-click="letsplayUpdate('english')"> English</button>
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> Italiano
+                        <button id="options4"  ng-click="letsplayUpdate('italiano')"> Italiano</button>
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> Deutsch
+                        <button id="options41" ng-click="letsplayUpdate('deutsch')"> Deutsch</button>
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> Español
+                        <button id="options412" ng-click="letsplayUpdate('espanol')"> Español</button>
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> Français
+                        <button id="options4123" ng-click="letsplayUpdate('francais')"> Français</button>
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> Japanese
+                        <button ng-click="letsplayUpdate('japanese')"> Japanese</button>
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> Português
+                        <button id="options412345"  ng-click="letsplayUpdate('português')"> Português</button>
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> Other
+                        <button  id="options4123456"  ng-click="letsplayUpdate('other')"> Other</button>
                     </label>
                 </div>
 
@@ -110,7 +123,7 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                                             <a rel="nofollow" href="{{link.url}}" target="_blank" >
                                                 <img ng-if="link.isYoutube" style="width: 24px; height: 24px" src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
                                                 <img ng-if="link.isDailymotion" style="width: 24px; height: 24px" src="http://static1.dmcdn.net/images/dailymotion-logo-ogtag.png.v2779e025da411e7f1" />
-                                                <img ng-if="link.isVimeo" style="width: 24px; height: 24px" src="http://filmmakerseo.com/vimeo/vimeologo.png"
+                                                <img ng-if="link.isVimeo" style="width: 24px; height: 24px" src="http://filmmakerseo.com/vimeo/vimeologo.png"/>
                                             </a>
                                             </div>
                                         </td>
@@ -167,7 +180,7 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                         <div  ng-if="isGamesUpdateLoaded"  ng-repeat="(indexP, valueP) in gamesUpdate">
                             <a href="#"><span class="thumb-info thumb-info-lighten thumb-info-bottom-info thumb-info-centered-icons">
 												<span class="thumb-info-wrapper">
-													<img ng-src="{{valueP.image_url}}"  class="img-responsive" alt="">
+													<img style="width: 261px;height: 321px"ng-src="{{valueP.image_url}}"  class="img-responsive" alt="">
 													<span class="thumb-info-title">
 														<span class="thumb-info-inner">{{valueP.title}}</span>
 													</span>

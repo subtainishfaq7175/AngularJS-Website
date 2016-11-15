@@ -6,7 +6,8 @@ angular.module('gameApp', [
   'gameApp.version',
   'kendo.directives',
     'ui.router',
-  'angularSpinner'
+  'angularSpinner',
+  'angularSimpleSlider'
 ]).controller('mainCtrl', ['$scope','newsService','homeService',function($scope,newsService,homeService)
 {
   $scope.newslist;$scope.letsplaylist;

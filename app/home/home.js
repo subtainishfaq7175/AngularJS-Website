@@ -16,8 +16,36 @@ angular.module('gameApp')
     $scope.letsPlayUpdate=[];
     $scope.gamesUpdate=[];
     $scope.gamesFeed=[];
+    $scope.slider={};
+    $scope.actualValue=0;
+    $scope.slider.next=function () {
+        $scope.actualValue++;
+        if($scope.actualValue== $scope.gamesFeed.length)
+            $scope.actualValue=0;
+
+    };
+    $scope.slider.prev=function () {
+        $scope.actualValue--;
+        if($scope.actualValue==-1)
+            $scope.actualValue= $scope.gamesFeed.length-1;
+    }
+    $scope.letsplayUpdate=function (var1) {
+        $scope.isLetsplayUpdateLoaded=false;
+        homeService.getLetsplayUpdate(var1).then(function(response)
+        {
+            console.log(response);
+            $scope.isLetsplayUpdateLoaded=true;
+
+            for(var i=0; i<response.data.length;i++)
+            {
+                $scope.letsPlayUpdate.push(response.data[i]);
+            }
 
 
+
+        })
+
+    }
 
 
     homeService.getGamesUpdate().then(function(response)
@@ -48,7 +76,7 @@ angular.module('gameApp')
 
 
     });
-    homeService.getLetsplayUpdate().then(function(response)
+    homeService.getLetsplayUpdate("all").then(function(response)
     {
         console.log(response);
         $scope.isLetsplayUpdateLoaded=true;

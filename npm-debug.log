@@ -1,0 +1,81 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'i', '-g' ]
+2 info using npm@3.9.5
+3 info using node@v6.2.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData .
+8 silly fetchDirectoryPackageData .
+9 silly install normalizeTree
+10 silly loadCurrentTree Finishing
+11 silly loadIdealTree Starting
+12 silly install loadIdealTree
+13 silly cloneCurrentTree Starting
+14 silly install cloneCurrentTreeToIdealTree
+15 silly cloneCurrentTree Finishing
+16 silly loadShrinkwrap Starting
+17 silly install loadShrinkwrap
+18 silly loadShrinkwrap Finishing
+19 silly loadAllDepsIntoIdealTree Starting
+20 silly install loadAllDepsIntoIdealTree
+21 silly resolveWithNewModule angular-seed@0.0.0 checking installable status
+22 silly cache add args [ '.', null ]
+23 verbose cache add spec .
+24 silly cache add parsed spec Result {
+24 silly cache add   raw: '.',
+24 silly cache add   scope: null,
+24 silly cache add   name: null,
+24 silly cache add   rawSpec: '.',
+24 silly cache add   spec: '/Volumes/Technical/game_mod_src/Client',
+24 silly cache add   type: 'directory' }
+25 verbose addLocalDirectory /Users/subtainishfaq/.npm/angular-seed/0.0.0/package.tgz not in flight; packing
+26 verbose correctMkdir /Users/subtainishfaq/.npm correctMkdir not in flight; initializing
+27 info lifecycle angular-seed@0.0.0~prepublish: angular-seed@0.0.0
+28 silly lifecycle angular-seed@0.0.0~prepublish: no script for prepublish, continuing
+29 verbose tar pack [ '/Users/subtainishfaq/.npm/angular-seed/0.0.0/package.tgz',
+29 verbose tar pack   '/Volumes/Technical/game_mod_src/Client' ]
+30 verbose tarball /Users/subtainishfaq/.npm/angular-seed/0.0.0/package.tgz
+31 verbose folder /Volumes/Technical/game_mod_src/Client
+32 verbose addLocalTarball adding from inside cache /Users/subtainishfaq/.npm/angular-seed/0.0.0/package.tgz
+33 verbose correctMkdir /Users/subtainishfaq/.npm correctMkdir not in flight; initializing
+34 silly cache afterAdd angular-seed@0.0.0
+35 verbose afterAdd /Users/subtainishfaq/.npm/angular-seed/0.0.0/package/package.json not in flight; writing
+36 verbose correctMkdir /Users/subtainishfaq/.npm correctMkdir not in flight; initializing
+37 verbose afterAdd /Users/subtainishfaq/.npm/angular-seed/0.0.0/package/package.json written
+38 silly loadAllDepsIntoIdealTree Finishing
+39 silly idealTree:prePrune lib
+39 silly idealTree:prePrune `-- angular-seed@0.0.0
+40 silly loadIdealTree Finishing
+41 silly currentTree lib
+42 silly idealTree lib
+42 silly idealTree `-- angular-seed@0.0.0
+43 silly generateActionsToTake Starting
+44 silly install generateActionsToTake
+45 warn checkPermissions Missing write access to /usr/local/lib/node_modules
+46 silly rollbackFailedOptional Starting
+47 silly rollbackFailedOptional Finishing
+48 silly runTopLevelLifecycles Starting
+49 silly runTopLevelLifecycles Finishing
+50 silly install printInstalled
+51 verbose stack Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
+51 verbose stack     at Error (native)
+52 verbose cwd /Volumes/Technical/game_mod_src/Client
+53 error Darwin 16.1.0
+54 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "i" "-g"
+55 error node v6.2.2
+56 error npm  v3.9.5
+57 error path /usr/local/lib/node_modules
+58 error code EACCES
+59 error errno -13
+60 error syscall access
+61 error Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
+61 error     at Error (native)
+61 error  { Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
+61 error     at Error (native)
+61 error   errno: -13,
+61 error   code: 'EACCES',
+61 error   syscall: 'access',
+61 error   path: '/usr/local/lib/node_modules' }
+62 error Please try running this command again as root/Administrator.
+63 verbose exit [ -13, true ]
