@@ -37,19 +37,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="toggle toggle-primary" data-plugin-toggle>
-                            <section class="toggle">
-                                <label>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua?</label>
-                                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </p>
-                            </section>
-
-                            <section class="toggle">
-                                <label>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua?</label>
-                                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                            </section>
-
-                            <section class="toggle">
-                                <label>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua?</label>
-                                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                            <section class="toggle" ng-repeat="item in faqsGenral">
+                                <label>{{item.title}}</label>
+                                <p>{{item.content}} </p>
                             </section>
                         </div>
                     </div>
@@ -62,16 +52,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="toggle toggle-primary" data-plugin-toggle>
-                            <section class="toggle">
-                                <label>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua?</label>
-                                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                            <section class="toggle" ng-repeat="item in faqsProfiles">
+                                <label>{{item.title}}</label>
+                                <p>{{item.content}} </p>
                             </section>
-
-                            <section class="toggle">
-                                <label>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua?</label>
-                                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </p>
-                            </section>
-                        </div>
+                             </div>
                     </div>
                 </div>
                 <div class="row">
@@ -82,19 +67,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="toggle toggle-primary" data-plugin-toggle>
-                            <section class="toggle">
-                                <label>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua?</label>
-                                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                            </section>
-
-                            <section class="toggle">
-                                <label>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua?</label>
-                                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                            </section>
-
-                            <section class="toggle">
-                                <label>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua?</label>
-                                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                            <section class="toggle" ng-repeat="item in faqsGames">
+                                <label>{{item.title}}</label>
+                                <p>{{item.content}} </p>
                             </section>
                         </div>
                     </div>
@@ -107,9 +82,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="toggle toggle-primary" data-plugin-toggle>
-                            <section class="toggle">
-                                <label>Hello again?</label>
-                                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                            <section class="toggle" ng-repeat="item in faqsWalkthrough">
+                                <label>{{item.title}}</label>
+                                <p>{{item.content}} </p>
                             </section>
                         </div>
                     </div>
@@ -119,3 +94,4 @@
             </div>
         </div>
     </div>
+</div>

@@ -15,58 +15,57 @@
 
                 <div>
                     <div class="btn-group" data-toggle="buttons" style="display:inline-block; margin-right:30px;">
-                        <label class="btn btn-primary">
-                            <input type="checkbox" checked autocomplete="off"> Action
+                        <label  ng-click="tagSelected('Action')" class="btn btn-primary">
+                            <input  type="checkbox" > Action
                         </label>
-                        <label class="btn btn-danger">
-                            <input type="checkbox" autocomplete="off"> Adventure
+                        <label   ng-click="tagSelected('Adventure')" class="btn btn-danger">
+                            <input  type="checkbox" > Adventure
                         </label>
-                        <label class="btn btn-default">
-                            <input type="checkbox" autocomplete="off"> Plattformer
+                        <label ng-click="tagSelected('Plattformer')"  class="btn btn-default" style="background-color: #da81ba; border-color: #94537e; color: floralwhite">
+                            <input  type="checkbox"  > Plattformer
                         </label>
-                        <label class="btn btn-success">
-                            <input type="checkbox" autocomplete="off"> Horror
+                        <label  ng-click="tagSelected('Horror')" class="btn btn-success">
+                            <input  type="checkbox"  > Horror
                         </label>
-                        <label class="btn btn-info">
-                            <input type="checkbox" autocomplete="off"> Fantasy
+                        <label ng-click="tagSelected('Fantasy')"  class="btn btn-info">
+                            <input  type="checkbox"  > Fantasy
                         </label>
-                        <label class="btn btn-warning">
-                            <input type="checkbox" autocomplete="off"> Shooter
+                        <label  ng-click="tagSelected('Shooter')" class="btn btn-warning">
+                            <input  type="checkbox"  > Shooter
                         </label>
                     </div>
 
                     <!-- Language Dropdown -->
                     <!--insert language here as well when a new one is added through the backend -->
                     <div class="dropdown" style="display:inline-block;">
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">All Languages
+                        <button class="btn btn-default dropdown-toggle" type="button" >All Languages
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">English</a>
+                        <ul class="dropdown-menu" >
+                            <li ><a ng-click="languageSelected('English')">English</a>
                             </li>
-                            <li><a href="#">Deutsch</a>
+                            <li><a ng-click="languageSelected('Deutsch')">Deutsch</a>
                             </li>
-                            <li><a href="#">Español</a>
+                            <li><a ng-click="languageSelected('Español')">Español</a>
                             </li>
-                            <li><a href="#">Français</a>
+                            <li><a ng-click="languageSelected('Français')" >Français</a>
                             </li>
-                            <li><a href="#">Italiano</a>
                             </li>
-                            <li><a href="#">Português</a>
+                            <li><a ng-click="languageSelected('Português')">Português</a>
                             </li>
-                            <li><a href="#">русский язык</a>
+                            <li><a ng-click="languageSelected('русский язык')">русский язык</a>
                             </li>
-                            <li><a href="#">Other</a>
+                            <li><a ng-click="languageSelected('Other')">Other</a>
                             </li>
                         </ul>
-                        <button type="button" class="btn btn-primary btn-md pull-right" style="margin-left:10px">Apply Filter</button>
+                        <button type="button" class="btn btn-primary btn-md pull-right" ng-click="resetFilters()" style="margin-left:10px">Reset Filters</button>
                     </div>
 
                     <form style="display:inline-block; float:right;">
                         <div class="input-group input-group-md" style="padding-right:20px; width:250px; ">
-                            <input class="form-control" placeholder="Search Title, Tags..." name="s" id="s" type="text">
+                            <input class="form-control" placeholder="Search Title, Tags..." ng-keydown="keyPressed()"  ng-model="search.value" type="text">
                             <span class="input-group-btn">
-				                 <button type="submit" class="btn btn-primary btn-md"><i class="fa fa-search"></i></button>
+				                 <button ng-click="keyPressed()" class="btn btn-primary btn-md"><i class="fa fa-search"></i></button>
 			                 </span>
                         </div>
                     </form>
@@ -85,16 +84,16 @@
                             <div class="well well-sm" style="background-color:#FFFFFF">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <a href="#/walkthrough/reader">
-                                            <img class="img-responsive" src="common/img/gta.jpg">
+                                        <a href="#/walkthrough/reader/{{rowElement._id}}">
+                                            <img class="img-responsive" ng-src="{{rowElement.image_url}}" style="width: 192px ; height: 270px">
                                         </a>
                                     </div>
                                     <div class="col-md-12">
-                                        <h6><a href="#/walkthrough/reader">{{rowElement.title}} <img style="width: 25px" img ng-src="{{rowElement.image_url}}" src="common/flags/flags/24/United States of America(USA).png" alt="Japanese Dub"></a></h6>
+                                        <h6><a href="#/walkthrough/reader/{{rowElement._id}}">{{rowElement.title}} <img style="width: 25px" img src="common/flags/flags/24/United States of America(USA).png" alt="Japanese Dub"></a></h6>
                                         <div class="text1" style="height: 1px"></div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <a href="#/walkthrough/reader#"><span class="label label-danger" ng-repeat="(indexG, gen) in rowElement.genre">{{gen.title}}</span></a>
+                                                <a ><span class="label label-danger" ng-repeat="(indexG, gen) in rowElement.genre">{{gen.title}}</span></a>
 
                                             </div>
                                         </div>
@@ -116,18 +115,14 @@
 
                         <!-- Pagination -->
                         <div class="row">
-                            <ul class="pagination pull-right" style="padding-top:10px; padding-right:35px">
-                                <li><a href="#"><i class="fa fa-chevron-left"></i></a>
+                            <ul class="pagination pagination-md pull-right">
+                                <li ng-click="getRequestedPage(1)" ><a >«</a>
                                 </li>
-                                <li class="active"><a href="#">1</a>
+
+                                <li  ng-repeat="i in getNumber(pages) track by $index"  ng-class="getActivePage($index+1)" ng-click="getRequestedPage($index+1)"><a >{{$index+1}}</a>
                                 </li>
-                                <li><a href="#">2</a>
-                                </li>
-                                <li><a href="#">3</a>
-                                </li>
-                                <li><a href="#">4</a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-chevron-right"></i></a>
+
+                                <li ng-click="getRequestedPage(pages)" ><a >»</a>
                                 </li>
                             </ul>
                         </div>

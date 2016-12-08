@@ -13,6 +13,28 @@ angular.module("gameApp").factory('gamespostService',['$http','SeatEatsConstants
         return promise;
     };
 
+    home.getGamesLike= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gameslike/'+arg);
+        return promise;
+    };
+
+    home.getGamesDislike= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesdislikes/'+arg);
+        return promise;
+    };
+
+
+    home.getGamesFavourite= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesfavourites/'+arg);
+        return promise;
+    };
+
 
     return home;
 

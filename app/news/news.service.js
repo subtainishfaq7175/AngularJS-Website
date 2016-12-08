@@ -6,10 +6,16 @@ angular.module("gameApp").factory('newsService',['$http','SeatEatsConstants', fu
 
     var home = {};
 
-    home.getNewsList= function ()
+    home.getNewsList= function (arg)
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'news');
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'news?page='+arg);
+        return promise;
+    };
+    home.getSearchedNewsList= function (var1)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'newssearch?query='+var1);
         return promise;
     };
 

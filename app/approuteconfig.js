@@ -10,6 +10,8 @@
         /**
          * Default path for any unmatched url
          */
+
+
         $urlRouterProvider.otherwise('/notfound');
         $urlRouterProvider.when('', '/');
 
@@ -113,6 +115,13 @@
                     controller: 'walkthroughCtrl'
 
                 })
+            .state('profile',
+                {
+                    url: '/profile',
+                    templateUrl: 'profile/profile.html',
+                    controller: 'profileCtrl'
+
+                })
             .state('walkthroughpost',
                 {
                     resolve: {
@@ -131,6 +140,15 @@
                 })
             .state('faq',
                 {
+        resolve: {
+            // create an Object property called "messages"
+            // which will later be used for Dependency Injection
+            // inside our Controller. Inject any Services we need as usual.
+             faqResolve: function (faqService) {
+                // Return our Service call, that returns a Promise
+                return faqService.getFaqs();
+                        }
+                },
                     url: '/faq',
                     templateUrl: 'faq/faq.html',
                     controller: 'faqCtrl'

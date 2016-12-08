@@ -1,11 +1,33 @@
 'use strict';
 
-angular.module('gameApp').controller('faqCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+angular.module('gameApp').controller('faqCtrl', ['$scope','SeatEatsConstants','$state','faqResolve',function($scope,SeatEatsConstants,$state,faqResolve)
 {
 
+$scope.faqs=faqResolve.data;
+$scope.faqsGenral=[];
+$scope.faqsWalkthrough=[];
+$scope.faqsGames=[];
+$scope.faqsProfiles=[];
+
+for( var i=0;i<$scope.faqs.length ; i++)
+{
+    switch ($scope.faqs[i].category){
+        case "General" :
+            $scope.faqsGenral.push($scope.faqs[i]);
+            break;
+            case "Game" :
+            $scope.faqsGames.push($scope.faqs[i]);
+            break;
+            case "Walkthrough" :
+            $scope.faqsWalkthrough.push($scope.faqs[i]);
+            break;
+            case "Profile" :
+            $scope.faqsProfiles.push($scope.faqs[i]);
+            break;
 
 
-
+    }
+}
 
 
 

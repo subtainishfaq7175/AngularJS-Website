@@ -48,61 +48,61 @@
                 <div class="row" id="paginator_top_hentaimedia" style="margin-left:15px;">
                     <div class="col-md-12">
                         <ul class="pagination pagination-sm">
-                            <li class="active"><a href="#">All</a>
+                            <li><a  ng-click="searchList(' ')">All</a>
                             </li>
-                            <li><a href="#">#</a>
+                            <li><a ng-click="searchList('1')">#</a>
                             </li>
-                            <li><a href="#">A</a>
+                            <li><a ng-click="searchList('a')">A</a>
                             </li>
-                            <li><a href="#">B</a>
+                            <li><a ng-click="searchList('b')">B</a>
                             </li>
-                            <li><a href="#">C</a>
+                            <li><a ng-click="searchList('c')">C</a>
                             </li>
-                            <li><a href="#">D</a>
+                            <li><a ng-click="searchList('d')">D</a>
                             </li>
-                            <li><a href="#">E</a>
+                            <li><a ng-click="searchList('e')">E</a>
                             </li>
-                            <li><a href="#">F</a>
+                            <li><a ng-click="searchList('f')">F</a>
                             </li>
-                            <li><a href="#">G</a>
+                            <li><a ng-click="searchList('g')">G</a>
                             </li>
-                            <li><a href="#">H</a>
+                            <li><a ng-click="searchList('h')">H</a>
                             </li>
-                            <li><a href="#">I</a>
+                            <li><a ng-click="searchList('i')">I</a>
                             </li>
-                            <li><a href="#">J</a>
+                            <li><a ng-click="searchList('j')">J</a>
                             </li>
-                            <li><a href="#">K</a>
+                            <li><a ng-click="searchList('k')">K</a>
                             </li>
-                            <li><a href="#">L</a>
+                            <li><a ng-click="searchList('l')">L</a>
                             </li>
-                            <li><a href="#">M</a>
+                            <li><a ng-click="searchList('m')">M</a>
                             </li>
-                            <li><a href="#">N</a>
+                            <li><a ng-click="searchList('n')">N</a>
                             </li>
-                            <li><a href="#">O</a>
+                            <li><a ng-click="searchList('o')">O</a>
                             </li>
-                            <li><a href="#">P</a>
+                            <li><a ng-click="searchList('p')">P</a>
                             </li>
-                            <li><a href="#">Q</a>
+                            <li><a ng-click="searchList('q')">Q</a>
                             </li>
-                            <li><a href="#">R</a>
+                            <li><a ng-click="searchList('r')">R</a>
                             </li>
-                            <li><a href="#">S</a>
+                            <li><a ng-click="searchList('s')">S</a>
                             </li>
-                            <li><a href="#">T</a>
+                            <li><a ng-click="searchList('t')">T</a>
                             </li>
-                            <li><a href="#">U</a>
+                            <li><a ng-click="searchList('u')">U</a>
                             </li>
-                            <li><a href="#">V</a>
+                            <li><a ng-click="searchList('v')">V</a>
                             </li>
-                            <li><a href="#">W</a>
+                            <li><a ng-click="searchList('w')">W</a>
                             </li>
-                            <li><a href="#">X</a>
+                            <li><a ng-click="searchList('x')">X</a>
                             </li>
-                            <li><a href="#">Y</a>
+                            <li><a ng-click="searchList('y')">Y</a>
                             </li>
-                            <li><a href="#">Z</a>
+                            <li><a ng-click="searchList('z')">Z</a>
                             </li>
                         </ul>
                     </div>
@@ -137,7 +137,7 @@
                                                 <strong>Released:</strong>
                                             </div>
                                             <div class="col-xs-9 col-md-5" style="margin-left: 30px">
-                                                {{letsPlay.release_date }}
+                                                {{letsPlay.release_date | date :'medium'}}
                                             </div>
                                         </div>
                                         <div class="text1" style="height: 5px"></div>
@@ -268,123 +268,49 @@
                     <hr>
 
                     <!--Most Popular-->
-                    <div class="tabs mb-xlg">
+                    <div class="tabs mb-xlg" ng-init="selectedTab = 'popular'">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i> Popular</a>
+                            <li ng-class="{'active':selectedTab === 'popular'}" ng-click="selectedTab = 'popular'"><a  data-toggle="tab"><i class="fa fa-star"></i> Popular</a>
                             </li>
-                            <li><a href="#recentPosts" data-toggle="tab">Most Favorites</a>
+                            <li ng-class="{'active':selectedTab === 'favourite'}" ng-click="selectedTab = 'favourite'"><a  data-toggle="tab">Most Favorites</a>
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="popularPosts">
+                            <div class="tab-pane" ng-class="{'tab-pane active':selectedTab === 'popular' , 'tab-pane':selectedTab !== 'popular'}" >
                                 <ul class="simple-post-list">
-                                    <li>
+                                    <li ng-repeat="item in letsPlayPopArray">
                                         <div class="post-image">
                                             <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost/">
-                                                    <img src="common/img/favorites/1.jpg" alt="" style="width:75px;">
+                                                <a ng-href="#/letsplay/playpost/{{item._id}}">
+                                                    <img ng-src="{{item.image_url}}" alt="" style="width:75px;height: 105px">
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="post-info">
-                                            <a href="#/letsplay/playpost">Nullam Vitae Nibh Un Odiosters</a>
+                                            <a ng-href="#/letsplay/playpost/{{item._id}}">{{item.title}}</a>
                                             <div class="post-meta">
-                                                Jan 10, 2015
+                                                {{item.created_time|date:'MM dd, yyyy'}}
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="post-image">
-                                            <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/2.jpg" alt="" style="width:75px;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="post-info">
-                                            <a href="#/letsplay/playpost">Vitae Nibh Un Odiosters</a>
-                                            <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post-image">
-                                            <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/3.jpg" alt="" style="width:75px;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="post-info">
-                                            <a href="#/letsplay/playpost">Odiosters Nullam Vitae</a>
-                                            <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post-image">
-                                            <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/4.jpg" alt="" style="width:75px;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="post-info">
-                                            <a href="#/letsplay/playpost">Odiosters Nullam Vitae</a>
-                                            <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
-                                        </div>
-                                    </li>
+
                                 </ul>
                             </div>
-                            <div class="tab-pane" id="recentPosts">
+                            <div class="tab-pane" ng-class="{'tab-pane active':selectedTab === 'favourite' , 'tab-pane':selectedTab !== 'favourite'}">
                                 <ul class="simple-post-list">
-                                    <li>
+
+                                    <li ng-repeat="item in letsPlayFavArray">
                                         <div class="post-image">
                                             <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/1.jpg" alt="" style="width:75px;">
+                                                <a ng-href="#/letsplay/playpost/{{item._id}}">
+                                                    <img ng-src="{{item.image_url}}" alt="" style="width:75px;height: 105px">
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="post-info">
-                                            <a href="#/letsplay/playpost">Vitae Nibh Un Odiosters</a>
+                                            <a ng-href="#/letsplay/playpost/{{item._id}}">{{item.title}}</a>
                                             <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post-image">
-                                            <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/1.jpg" alt="" style="width:75px;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="post-info">
-                                            <a href="#/letsplay/playpost">Odiosters Nullam Vitae</a>
-                                            <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post-image">
-                                            <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/1.jpg" alt="" style="width:75px;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="post-info">
-                                            <a href="#/letsplay/playpost">Nullam Vitae Nibh Un Odiosters</a>
-                                            <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
+                                                {{item.created_time|date:'MM dd, yyyy'}}                                            </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -418,11 +344,11 @@
 
 
                 <div class="btn-group pull-right" data-toggle="buttons">
-                    <label class="btn btn-default"><i class="fa fa-th-list"></i>
-                        <input type="radio" name="options" id="option1" autocomplete="off" ng-click="clickList()" > List
+                    <label class="btn btn-default" ng-click="clickList()"><i class="fa fa-th-list"></i>
+                        <input type="radio" name="options" id="optioasdn1" autocomplete="off"  > List
                     </label>
-                    <label class="btn btn-default active"><i class="fa fa-align-justify"></i>
-                        <input type="radio" name="options" id="option2" autocomplete="off" checked ng-click="clickTable()"> Table
+                    <label class="btn btn-default active" ng-click="clickTable()"><i class="fa fa-align-justify" ></i>
+                        <input type="radio" name="options" id="optiasdon2" autocomplete="off" checked > Table
                     </label>
                 </div>
 
@@ -432,61 +358,61 @@
                 <div class="row" id="paginator_top_hentaimedia" style="margin-left:15px;">
                     <div class="col-md-12">
                         <ul class="pagination pagination-sm">
-                            <li class="active"><a href="#">All</a>
+                            <li class="active"><a >All</a>
                             </li>
-                            <li><a href="#">#</a>
+                            <li><a ng-click="searchList('1')">#</a>
                             </li>
-                            <li><a href="#">A</a>
+                            <li><a ng-click="searchList('a')">A</a>
                             </li>
-                            <li><a href="#">B</a>
+                            <li><a ng-click="searchList('b')">B</a>
                             </li>
-                            <li><a href="#">C</a>
+                            <li><a ng-click="searchList('c')">C</a>
                             </li>
-                            <li><a href="#">D</a>
+                            <li><a ng-click="searchList('d')">D</a>
                             </li>
-                            <li><a href="#">E</a>
+                            <li><a ng-click="searchList('e')">E</a>
                             </li>
-                            <li><a href="#">F</a>
+                            <li><a ng-click="searchList('f')">F</a>
                             </li>
-                            <li><a href="#">G</a>
+                            <li><a ng-click="searchList('g')">G</a>
                             </li>
-                            <li><a href="#">H</a>
+                            <li><a ng-click="searchList('h')">H</a>
                             </li>
-                            <li><a href="#">I</a>
+                            <li><a ng-click="searchList('i')">I</a>
                             </li>
-                            <li><a href="#">J</a>
+                            <li><a ng-click="searchList('j')">J</a>
                             </li>
-                            <li><a href="#">K</a>
+                            <li><a ng-click="searchList('k')">K</a>
                             </li>
-                            <li><a href="#">L</a>
+                            <li><a ng-click="searchList('l')">L</a>
                             </li>
-                            <li><a href="#">M</a>
+                            <li><a ng-click="searchList('m')">M</a>
                             </li>
-                            <li><a href="#">N</a>
+                            <li><a ng-click="searchList('n')">N</a>
                             </li>
-                            <li><a href="#">O</a>
+                            <li><a ng-click="searchList('o')">O</a>
                             </li>
-                            <li><a href="#">P</a>
+                            <li><a ng-click="searchList('p')">P</a>
                             </li>
-                            <li><a href="#">Q</a>
+                            <li><a ng-click="searchList('q')">Q</a>
                             </li>
-                            <li><a href="#">R</a>
+                            <li><a ng-click="searchList('r')">R</a>
                             </li>
-                            <li><a href="#">S</a>
+                            <li><a ng-click="searchList('s')">S</a>
                             </li>
-                            <li><a href="#">T</a>
+                            <li><a ng-click="searchList('t')">T</a>
                             </li>
-                            <li><a href="#">U</a>
+                            <li><a ng-click="searchList('u')">U</a>
                             </li>
-                            <li><a href="#">V</a>
+                            <li><a ng-click="searchList('v')">V</a>
                             </li>
-                            <li><a href="#">W</a>
+                            <li><a ng-click="searchList('w')">W</a>
                             </li>
-                            <li><a href="#">X</a>
+                            <li><a ng-click="searchList('x')">X</a>
                             </li>
-                            <li><a href="#">Y</a>
+                            <li><a ng-click="searchList('y')">Y</a>
                             </li>
-                            <li><a href="#">Z</a>
+                            <li><a ng-click="searchList('z')">Z</a>
                             </li>
                         </ul>
                     </div>
@@ -506,7 +432,7 @@
                     <tr ng-if="isLetsplayLoaded" ng-repeat="(indexT, letsPlay) in letsPlayArray">
                         <td><a href="#/letsplay/playpost/{{letsPlay._id}}" data-html='true' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="<img style=width:160px; src={{letsPlay.image_url}}">{{letsPlay.title}}</a>
                         </td>
-                        <td>{{letsPlay.release_date}}</td>
+                        <td>{{letsPlay.release_date| date :'medium'}}</td>
                     </tr>
                     <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isLetsplayLoaded"></span>
 
@@ -600,123 +526,49 @@
                     <hr>
 
                     <!--Most Popular-->
-                    <div class="tabs mb-xlg">
+                    <div class="tabs mb-xlg" ng-init="selectedTab = 'popular'">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i> Popular</a>
+                            <li ng-class="{'active':selectedTab === 'popular'}" ng-click="selectedTab = 'popular'"><a  data-toggle="tab"><i class="fa fa-star"></i> Popular</a>
                             </li>
-                            <li><a href="#recentPosts" data-toggle="tab">Most Favorites</a>
+                            <li ng-class="{'active':selectedTab === 'favourite'}" ng-click="selectedTab = 'favourite'"><a  data-toggle="tab">Most Favorites</a>
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="popularPosts">
+                            <div class="tab-pane" ng-class="{'tab-pane active':selectedTab === 'popular' , 'tab-pane':selectedTab !== 'popular'}" >
                                 <ul class="simple-post-list">
-                                    <li>
+                                    <li ng-repeat="item in letsPlayPopArray">
                                         <div class="post-image">
                                             <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/1.jpg" alt="" style="width:75px;">
+                                                <a ng-href="#/letsplay/playpost/{{item._id}}">
+                                                    <img ng-src="{{item.image_url}}" alt="" style="width:75px;height: 105px">
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="post-info">
-                                            <a href="#/letsplay/playpost">Nullam Vitae Nibh Un Odiosters</a>
+                                            <a ng-href="#/letsplay/playpost/{{item._id}}">{{item.title}}</a>
                                             <div class="post-meta">
-                                                Jan 10, 2015
+                                                {{item.created_time|date:'MM dd, yyyy'}}
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="post-image">
-                                            <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/2.jpg" alt="" style="width:75px;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="post-info">
-                                            <a href="#/letsplay/playpost">Vitae Nibh Un Odiosters</a>
-                                            <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post-image">
-                                            <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/3.jpg" alt="" style="width:75px;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="post-info">
-                                            <a href="#/letsplay/playpost">Odiosters Nullam Vitae</a>
-                                            <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post-image">
-                                            <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/4.jpg" alt="" style="width:75px;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="post-info">
-                                            <a href="#/letsplay/playpost">Odiosters Nullam Vitae</a>
-                                            <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
-                                        </div>
-                                    </li>
+
                                 </ul>
                             </div>
-                            <div class="tab-pane" id="recentPosts">
+                            <div class="tab-pane" ng-class="{'tab-pane active':selectedTab === 'favourite' , 'tab-pane':selectedTab !== 'favourite'}">
                                 <ul class="simple-post-list">
-                                    <li>
+
+                                    <li ng-repeat="item in letsPlayFavArray">
                                         <div class="post-image">
                                             <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/1.jpg" alt="" style="width:75px;">
+                                                <a ng-href="#/letsplay/playpost/{{item._id}}">
+                                                    <img ng-src="{{item.image_url}}" alt="" style="width:75px;height: 105px">
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="post-info">
-                                            <a href="#/letsplay/playpost">Vitae Nibh Un Odiosters</a>
+                                            <a ng-href="#/letsplay/playpost/{{item._id}}">{{item.title}}</a>
                                             <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post-image">
-                                            <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/1.jpg" alt="" style="width:75px;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="post-info">
-                                            <a href="#/letsplay/playpost">Odiosters Nullam Vitae</a>
-                                            <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post-image">
-                                            <div class="img-thumbnail">
-                                                <a href="#/letsplay/playpost">
-                                                    <img src="common/img/favorites/1.jpg" alt="" style="width:75px;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="post-info">
-                                            <a href="#/letsplay/playpost">Nullam Vitae Nibh Un Odiosters</a>
-                                            <div class="post-meta">
-                                                Jan 10, 2015
-                                            </div>
+                                                {{item.created_time|date:'MM dd, yyyy'}}                                            </div>
                                         </div>
                                     </li>
                                 </ul>

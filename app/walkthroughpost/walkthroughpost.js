@@ -5,8 +5,48 @@ angular.module('gameApp').controller('walkthroughpostCtrl', ['$scope','SeatEatsC
 
 //Todo make content dynamic and and add resolve
 
+$scope.current={};
+$scope.current.chapterIndex=0;
+$scope.current.chapter=undefined;
+$scope.current.pageIndex=0;
+$scope.current.page=undefined;
+
+$scope.prevPage=function ()
+{
+  if($scope.current.pageIndex>0)
+      $scope.current.pageIndex--;
+    else
+      $scope.current.pageIndex= $scope.post.chapters[$scope.current.chapterIndex].images.length-1;
+
+    $scope.current.page= $scope.post.chapters[$scope.current.chapterIndex].images[ $scope.current.pageIndex].image_url;
+};
+$scope.nextPage=function () {
+    if($scope.current.pageIndex<$scope.post.chapters[$scope.current.chapterIndex].images.length-1)
+        $scope.current.pageIndex++;
+    else
+        $scope.current.pageIndex= 0;
+
+
+    $scope.current.page= $scope.post.chapters[$scope.current.chapterIndex].images[ $scope.current.pageIndex].image_url;
+
+};
+$scope.selectPage=function (pageIndex)
+{
+    $scope.current.page= $scope.post.chapters[$scope.current.chapterIndex].images[ pageIndex].image_url;
+    $scope.current.pageIndex= pageIndex;
+};
+$scope.selectChapter=function (chapterIndex) {
+
+    $scope.current.chapter= $scope.post.chapters[chapterIndex];
+    $scope.current.chapterIndex= chapterIndex;
+};
 
 $scope.post=resolvedWalkthrough.data;
+
+    if(angular.isDefined($scope.post.chapters) && $scope.post.chapters.length>0)
+if(angular.isDefined($scope.post.chapters[0].images) && $scope.post.chapters[0].images.length>0)
+    $scope.current.page= $scope.post.chapters[0].images[0].image_url;
+
 
 }]);
 

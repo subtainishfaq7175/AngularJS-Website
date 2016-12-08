@@ -6,10 +6,10 @@ angular.module("gameApp").factory('contactService',['$http','SeatEatsConstants',
 
     var home = {};
 
-    home.getRepoList= function ()
+    home.postMessage= function (obj)
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'getRepoList.php');
+        var promise = $http.post(SeatEatsConstants.AppUrlApi+'messages',obj);
         return promise;
     };
     home.createRepo= function (index)

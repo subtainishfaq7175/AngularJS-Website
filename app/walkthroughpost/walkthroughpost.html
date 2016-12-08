@@ -1,38 +1,7 @@
 <div class="container" style="background:#262626">
 
 
-    <!-- Theme Radio Buttons -->
 
-    <!-- Fit Button <button type="button" class="btn btn-default btn-sm"><i class="fa fa-compress"></i> Site Fit</button>-->
-   <!-- <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-        <div class="container-fluid">
-            &lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><font color="#ffffff">Game Mods</font color></a>
-            </div>
-
-            &lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#"><font color="#428bca">>>The Witcher 3: Wild Hunt</font color></a>
-                    </li>
-
-                </ul>
-
-            </div>
-            &lt;!&ndash; /.navbar-collapse &ndash;&gt;
-        </div>
-        &lt;!&ndash; /.container-fluid &ndash;&gt;
-    </nav>-->
-
-
-    <!-- clear space -->
 
     <div style="width:100%; height:70px"> </div>
 
@@ -44,16 +13,16 @@
                 <div class="col-md-9">
 
                     <div class="post-image">
-                        <img class="img-thumbnail" img style="margin:0px auto;display:block" src="common/img/witcher-page-233.jpg" alt="">
+                        <img class="img-thumbnail" img style="margin:0px auto;display:block; width: 825px;height: 1169px " ng-src="{{current.page}}" alt="">
                     </div>
                     <div style="width:100%; height:10px"> </div>
                     <!--Pager -->
                     <div class="container row" style="width:100%;margin-top: 5px;">
-                        <a href="#">
+                        <a ng-click="prevPage()">
                             <button type="button" class="btn btn btn-dark ">
                                 < Previous</button>
                         </a>
-                        <a href="#">
+                        <a ng-click="nextPage()">
                             <button type="button" class="btn btn btn-dark pull-right" style="margin-right:-30px">Next ></button>
                         </a>
                     </div>
@@ -79,55 +48,12 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb1.jpg" class="img-responsive img-thumbnail" alt="">Page 01</a>
+                                            <div ng-repeat="(pageIndex,itemPage) in post.chapters[current.chapterIndex].images" class="col-md-2 text-center">
+                                                <a ng-click="selectPage(pageIndex)">Page {{pageIndex}}</a>
                                             </div>
 
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb2.jpg" class="img-responsive img-thumbnail" alt="">Page 02</a>
-                                            </div>
 
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb1.jpg" class="img-responsive img-thumbnail" alt="">Page 03</a>
-                                            </div>
 
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb2.jpg" class="img-responsive img-thumbnail" alt="">Page 04</a>
-                                            </div>
-
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb1.jpg" class="img-responsive img-thumbnail" alt="">Page 05</a>
-                                            </div>
-
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb2.jpg" class="img-responsive img-thumbnail" alt="">Page 06</a>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix" style="height:5px"></div>
-                                        <div class="row">
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb1.jpg" class="img-responsive img-thumbnail" alt="">Page 07</a>
-                                            </div>
-
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb2.jpg" class="img-responsive img-thumbnail" alt="">Page 08</a>
-                                            </div>
-
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb1.jpg" class="img-responsive img-thumbnail" alt="">Page 09</a>
-                                            </div>
-
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb2.jpg" class="img-responsive img-thumbnail" alt="">Page 10</a>
-                                            </div>
-
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb1.jpg" class="img-responsive img-thumbnail" alt="">Page 11</a>
-                                            </div>
-
-                                            <div class="col-md-2 text-center">
-                                                <a href="#"><img src="common/img/thumb2.jpg" class="img-responsive img-thumbnail" alt="">Page 12</a>
-                                            </div>
                                         </div>
                                         <div class="clearfix" style="height:5px"></div>
                                     </div>
@@ -141,34 +67,24 @@
 
                         <!-- Select chapter and page -->
                         <div class="dropdown" style="display:inline-block;">
-                            <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">Chapter 1
+                            <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">Chapters
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Chapter 1</a>
+                                <li ng-repeat="(chapterIndex,itemChapter) in post.chapters"><a ng-click="selectChapter(chapterIndex)">{{itemChapter.title}}</a>
                                 </li>
-                                <li><a href="#">Chapter 2</a>
-                                </li>
-                                <li><a href="#">Chapter 3</a>
-                                </li>
-                                <li><a href="#">Chapter 4</a>
-                                </li>
+
                             </ul>
                         </div>
 
                         <div class="dropdown" style="display:inline-block;">
-                            <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">Page 25
+                            <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">Page
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Page 1</a>
+                                <li ng-repeat="(pageSelected,pageData) in post.chapters[current.chapterIndex].images" ><a ng-click="selectPage(pageSelected)">Page {{pageSelected}}</a>
                                 </li>
-                                <li><a href="#">Page 2</a>
-                                </li>
-                                <li><a href="#">Page 3</a>
-                                </li>
-                                <li><a href="#">Page 4</a>
-                                </li>
+
                             </ul>
 
                         </div>
@@ -182,7 +98,7 @@
                                 <strong>Titles:</strong>
                             </div>
                             <div class="col-md-8">
-                                The Witcher 3
+                                {{post.title}}
                             </div>
                         </div>
                         <div class="text1" style="height: 3px"></div>
@@ -191,7 +107,7 @@
                                 <strong>Series:</strong>
                             </div>
                             <div class="col-md-8">
-                                <a href="url">The Witcher</a>
+                                {{post.series}}<!--<a href="url">The Witcher</a>-->
                             </div>
                         </div>
                         <div class="text1" style="height: 3px"></div>
@@ -201,7 +117,10 @@
                                 <strong>Artist:</strong>
                             </div>
                             <div class="col-md-8">
+                                {{post.artist}}
+                                <!--
                                 <a href="url">GRZEGORZ PRZYBYŚ</a>
+-->
                             </div>
                         </div>
                         <div class="text1" style="height: 3px"></div>
@@ -210,7 +129,10 @@
                                 <strong>Translator:</strong>
                             </div>
                             <div class="col-md-8">
+                                {{post.translator}}
+                                <!--
                                 <a href="url">Nimoke</a>
+-->
                             </div>
                         </div>
                         <div class="text1" style="height: 3px"></div>
@@ -219,7 +141,10 @@
                                 <strong>Scanlator:</strong>
                             </div>
                             <div class="col-md-8">
+                                {{post.scanlator}}
+                                <!--
                                 <a href="url">Marek Tatar</a>
+-->
                             </div>
                         </div>
                         <div class="text1" style="height: 5px"></div>
@@ -228,7 +153,9 @@
                                 <strong>Magazine:</strong>
                             </div>
                             <div class="col-md-8">
-                                <a href="url">PC Games #37</a>
+                                {{post.magazine}}
+
+                                <!--<a href="url">PC Games #37</a>-->
                             </div>
                         </div>
                         <div class="text1" style="height: 5px"></div>
@@ -236,7 +163,7 @@
                         <div class="clearfix" style="height: 5px"></div>
                         <div class="row">
                             <div class="col-md-12">
-                                The Witcher® 3: Wild Hunt is a story-driven, next-generation open world role-playing game, set in a visually stunning fantasy universe, full of meaningful choices and impactful consequences. You play as Geralt of Rivia, a monster hunter tasked with finding a child from an ancient prophecy.
+                                {{post.content}}
                             </div>
                         </div>
 
@@ -248,18 +175,15 @@
                                 <h5 class="heading-primary">Tags</h5>
                             </div>
                             <div class="col-md-9">
-                                <a href="#"><span class="label label-dark">Fantasy</span></a>
-                                <a href="#"><span class="label label-dark">RPG</span></a>
-                                <a href="#"><span class="label label-dark">Action</span></a>
-                                <a href="#"><span class="label label-dark">Adventure</span></a>
-                                <a href="#"><span class="label label-dark">Magic</span></a>
+                                <a  ng-repeat="(pIndex,item) in post.tags"><span class="label label-dark">{{item.title}}</span></a>
+
                             </div>
                         </div>
                         <hr>
 
                         <!-- Profile functions -->
-                        <a class="btn btn-dark btn-block btn-md " href="#" target="_blank"><i class="fa fa-heart-o"></i> Favorite </a>
-                        <a class="btn btn-dark btn-block btn-md " href="#" target="_blank"><i class="fa fa-cloud-download"></i> Download</a>
+                        <a class="btn btn-dark btn-block btn-md " target="_blank"><i class="fa fa-heart-o"></i> Favorite </a>
+                        <a class="btn btn-dark btn-block btn-md "  target="_blank"><i class="fa fa-cloud-download"></i> Download</a>
 
                     </aside>
 

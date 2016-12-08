@@ -3,12 +3,20 @@
 angular.module('gameApp')
 
 
-.controller('NewspostCtrl', ['$scope','SeatEatsConstants','$state','resolvedNews',function($scope,SeatEatsConstants,$state,resolvedNews)
+.controller('NewspostCtrl', ['$scope','SeatEatsConstants','$state','resolvedNews','newspostService',function($scope,SeatEatsConstants,$state,resolvedNews,newspostService)
 {
 
 //Todo make content dynamic and and add resolve
+$scope.news= resolvedNews.data;
+$scope.model={};
 
-   $scope.news= resolvedNews.data;
+$scope.postComment=function ()
+{
+    newspostService.putNewsComments($scope.news._id,$scope.model).then(function (response)
+    {
+      console.log(response.data);
+    })
+}
 
 
 

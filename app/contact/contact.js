@@ -1,10 +1,18 @@
 'use strict';
 
-angular.module('gameApp').controller('contactCtrl', ['$scope','SeatEatsConstants','$state',function($scope,SeatEatsConstants,$state)
+angular.module('gameApp').controller('contactCtrl', ['$scope','SeatEatsConstants','$state','contactService',function($scope,SeatEatsConstants,$state,contactService)
 {
+$scope.model={};
 
 
-
+$scope.publishMessage=function ()
+{
+    contactService.postMessage($scope.model).then(function (response)
+    {
+    console.log(response.data);
+    $state.go('home');
+    });
+}
 
 
 

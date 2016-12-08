@@ -13,9 +13,27 @@ angular.module('gameApp')
 $scope.isTable=false;
 $scope.isLetsplayLoaded=false;
 $scope.letsPlayArray = [];
+$scope.letsPlayFavArray = [];
+$scope.letsPlayPopArray = [];
+  //  $scope.model={};
 
-letsplayService.getLetsplayList().then(function(response)
-{
+letsplayService.getLetsplayPopularList().then(function (response) {
+        response=response.data;
+    for(var i=0; i<response.length;i++)
+    {
+        $scope.letsPlayPopArray.push(response[i]);
+    }
+
+});
+
+letsplayService.getLetsplayFavouriteList().then(function (response) {
+    response=response.data;
+    for(var i=0; i<response.length;i++)
+    {
+        $scope.letsPlayFavArray.push(response[i]);
+    }});
+
+letsplayService.getLetsplayList().then(function(response) {
 
     for(var i=0; i<response.data.docs.length;i++)
     {
@@ -24,16 +42,32 @@ letsplayService.getLetsplayList().then(function(response)
     $scope.isLetsplayLoaded=true;
 
     });
+$scope.searchList=function(var1) {
+        $scope.isLetsplayLoaded=false;
 
-$scope.clickTable=function ()
-{
+        letsplayService.getLetsplaySearchList(var1).then(function(response) {
+
+            while($scope.letsPlayArray.length > 0) {
+                $scope.letsPlayArray.pop();
+            }
+
+            for(var i=0; i<response.data.docs.length;i++)
+            {
+                $scope.letsPlayArray.push(response.data.docs[i]);
+            }
+            $scope.isLetsplayLoaded=true;
+
+        });
+
+    };
+
+$scope.clickTable=function () {
 
     $scope.isTable=true;
 
 };
 
-$scope.clickList=function ()
-{
+$scope.clickList=function () {
 
     $scope.isTable=false;
 

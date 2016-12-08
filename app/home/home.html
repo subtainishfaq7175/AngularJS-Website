@@ -9,24 +9,10 @@
         </script>-->
         <div class="ca-wrapper" style="overflow: hidden; margin-top:20px ;margin-left: 150px" >
 
-       <!--     <div class="ca-item ca-item-1" style="position: absolute; left: 0px;" ng-if="isGamesFeedLoaded"  ng-repeat="(indexF, valueF) in gamesFeed">
-                <div class="ca-item-main">
-                    <div class="ca-icon">
-                        <a href="#" class="preloader">
-                        </a>
-                    </div>
-                </div>
-            </div>-->
 
             <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isGamesFeedLoaded"></span>
 
 
-<!--
-            <slick ng-if="isGamesFeedLoaded" settings="slickConfig">
-                <div ng-repeat="(indexF, valueF) in gamesFeed">
-                    <div class="" ng-include="'tpl.html'"></div>
-                </div>
-            </slick>-->
             <simple-slider ng-if="isGamesFeedLoaded" slider-instance="slider" current-slide="actualValue" style="width:612px; height:612px;  align-content: center;" auto-play="false">
                 <img ng-repeat="(indexF, valueF) in gamesFeed" ng-src="{{valueF.image_url}}"  style="width:612px;height:400px;" align="middle"/>
 
@@ -49,47 +35,37 @@
     <div class="container" style="margin-top: -24px; margin-bottom: -50px; background: #FFFFFF">
         <div class="row">
 
-            <!-- Let's Play Updates -->
-            <!-- 12 projects underneath each other -->
-            <!-- -first step: Enter a new project with the details
--second step: Enter the release, choose the language, sub or dub as well as the resolution and make the system automatically choose the corresponding flag depending on the language you chose
--third step: enter links for the project (youtube, vimeo, etc), best would be to have a field where every new row counts as new link,
-separated by pressing the enter key (of course there should be a possibility to delete links as well if they are either outdated or dead or wrong links)
--Explanation: hosters like YouTube etc. take the main settings from the backend (backend-host.jpg) and forward these to the frontend
-so that the correct Icon and the correct Host will be shown and Hosts with the same Typenames will be summarized and shown together in the updates in the right column.
-4. make an updating timestamp for the projects (minutes ago, hours ago, days ago -> 12 minutes ago, 3 hours ago, 7 days ago) -->
-
             <div class="col-md-9" style="background: #FFFFFF;padding-left:20px; padding-right:20px">
                 <h3 class="heading-primary">New Let's Play Updates</h3>
 
 
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default active" >
-                        <button ng-click="letsplayUpdate('all')" > All Languages</button>
+                <div class="btn-group languages-row" data-toggle="buttons">
+                    <label class="btn btn-default " >
+                        <button class="languages"  ng-click="letsplayUpdate('all')" > All Languages</button>
                     </label>
                     <label class="btn btn-default">
-                        <button ng-click="letsplayUpdate('english')"> English</button>
+                        <button class="languages" ng-click="letsplayUpdate('english')"> English</button>
                     </label>
                     <label class="btn btn-default">
-                        <button id="options4"  ng-click="letsplayUpdate('italiano')"> Italiano</button>
+                        <button class="languages" id="options4"  ng-click="letsplayUpdate('italiano')"> Italiano</button>
                     </label>
                     <label class="btn btn-default">
-                        <button id="options41" ng-click="letsplayUpdate('deutsch')"> Deutsch</button>
+                        <button class="languages" id="options41" ng-click="letsplayUpdate('deutsch')"> Deutsch</button>
                     </label>
                     <label class="btn btn-default">
-                        <button id="options412" ng-click="letsplayUpdate('espanol')"> Español</button>
+                        <button class="languages" id="options412" ng-click="letsplayUpdate('espanol')"> Español</button>
                     </label>
                     <label class="btn btn-default">
-                        <button id="options4123" ng-click="letsplayUpdate('francais')"> Français</button>
+                        <button class="languages" id="options4123" ng-click="letsplayUpdate('francais')"> Français</button>
                     </label>
                     <label class="btn btn-default">
-                        <button ng-click="letsplayUpdate('japanese')"> Japanese</button>
+                        <button class="languages" ng-click="letsplayUpdate('japanese')"> Japanese</button>
                     </label>
                     <label class="btn btn-default">
-                        <button id="options412345"  ng-click="letsplayUpdate('português')"> Português</button>
+                        <button class="languages" id="options412345"  ng-click="letsplayUpdate('português')"> Português</button>
                     </label>
                     <label class="btn btn-default">
-                        <button  id="options4123456"  ng-click="letsplayUpdate('other')"> Other</button>
+                        <button class="languages"  id="options4123456"  ng-click="letsplayUpdate('other')"> Other</button>
                     </label>
                 </div>
 
@@ -149,7 +125,7 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
 
                                         <!-- the time should not be a clickable button -->
 
-                                        <button type="button" class="btn btn-default btn-sm">15 hours ago</button>
+                                        <button  type="button" class="btn btn-default btn-sm">{{valueP.release_date|timeAgo}}</button>
                                     </div>
                                 </div>
 
@@ -178,7 +154,7 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                     <div class="col-md-3">
 
                         <div  ng-if="isGamesUpdateLoaded"  ng-repeat="(indexP, valueP) in gamesUpdate">
-                            <a href="#"><span class="thumb-info thumb-info-lighten thumb-info-bottom-info thumb-info-centered-icons">
+                            <a href="#/games/gamespost/{{valueP._id}}"><span class="thumb-info thumb-info-lighten thumb-info-bottom-info thumb-info-centered-icons">
 												<span class="thumb-info-wrapper">
 													<img style="width: 261px;height: 321px"ng-src="{{valueP.image_url}}"  class="img-responsive" alt="">
 													<span class="thumb-info-title">
@@ -205,7 +181,7 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                     <div class="col-md-12" style="background: #FFFFFF;padding-left:20px; padding-right:20px">
                         <hr>
                         <div style="width:100%; height:40px"> </div>
-                        <h3 class="heading-primary">Latest News</h3>
+                        <h3 class="heading-primary" ng-if="newsUpdate.length>0">Latest News</h3>
                         <div class="blog-posts">
 
 
@@ -222,7 +198,7 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
 
                                         <div class="post-content">
 
-                                            <h2><a href="blog-post.html">{{newsUpdate[0].title}}</a></h2>
+                                            <h2><a href="#/news/newspost/{{newsUpdate[0]._id}}">{{newsUpdate[0].title}}</a></h2>
                                             <p>{{newsUpdate[0].content}}</p>
 
                                         </div>
@@ -234,10 +210,10 @@ so that the correct Icon and the correct Host will be shown and Hosts with the s
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="post-meta">
-                                            <span><i class="fa fa-calendar"></i> {{newsUpdate[0].release_date}} </span>
+                                            <span><i class="fa fa-calendar"></i> {{newsUpdate[0].release_date| date :'medium'}} </span>
                                             <span><i class="fa fa-tag"></i> <a href="#" ng-repeat="(indexT, tag) in newsUpdate[0].tags">{{tag.title}}</a></span>
-                                            <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-                                            <a href="blog-post.html" class="btn btn-xs btn-primary pull-right">Read more...</a>
+                                            <span><i class="fa fa-comments"></i> <a href="#/news/newspost/{{newsUpdate[0]._id}}">{{newsUpdate[0].comments.length}} Comments</a></span>
+                                            <a href="#/news/newspost/{{newsUpdate[0]._id}}" class="btn btn-xs btn-primary pull-right">Read more...</a>
                                         </div>
                                     </div>
                                 </div>

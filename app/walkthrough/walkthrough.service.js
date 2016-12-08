@@ -6,10 +6,30 @@ angular.module("gameApp").factory('walkthroughService',['$http','SeatEatsConstan
 
     var home = {};
 
-    home.getWalkthroughList= function ()
+    home.getWalkthroughList= function (arg)
     {
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'walkthrough');
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'walkthrough?page='+arg);
+        return promise;
+    };
+
+    home.getWalkthroughListBySearch= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'walkthroughsearch/'+arg);
+        return promise;
+    };
+
+    home.getWalkthroughListByTag= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'walkthroughsearchtag/'+arg);
+        return promise;
+    };
+home.getWalkthroughListByLanguage= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'walkthroughsearchlanguage/'+arg);
         return promise;
     };
 

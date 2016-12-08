@@ -28,12 +28,13 @@ angular.module('gameApp')
         $scope.actualValue--;
         if($scope.actualValue==-1)
             $scope.actualValue= $scope.gamesFeed.length-1;
-    }
+    };
     $scope.letsplayUpdate=function (var1) {
         $scope.isLetsplayUpdateLoaded=false;
         homeService.getLetsplayUpdate(var1).then(function(response)
         {
             console.log(response);
+            $scope.letsPlayUpdate.splice(0, $scope.letsPlayUpdate.length);
             $scope.isLetsplayUpdateLoaded=true;
 
             for(var i=0; i<response.data.length;i++)

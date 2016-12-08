@@ -8,11 +8,13 @@ angular.module('gameApp')
 //Todo search and pagination
 
 
-$scope.isNewsLoaded=false;
-$scope.newsDetails=[];
-
-    newsService.getNewsList().then(function (response)
-    {
+    $scope.isNewsLoaded=false;
+    $scope.newsDetails=[];
+    $scope.searchNews=searchNews;
+    $scope.model={};
+    $scope.page=0;
+    $scope.pages=0;
+    newsService.getNewsList(1).then(function (response) {
         $scope.isNewsLoaded=true;
         response=response.data;
         debugger;
@@ -21,7 +23,50 @@ $scope.newsDetails=[];
         {
             $scope.newsDetails.push(response.docs[i]);
         }
+    $scope.page=response.page;
+    $scope.pages=response.pages;
     });
+    $scope.getNumber = function(num) {
+        return new Array(num);
+    };
+    $scope.getActivePage = function(num) {
+        if(num==$scope.page)
+        {
+            return "active"
+        }
+    };
+    $scope.getRequestedPage = function(num) {
+
+
+        newsService.getNewsList(num).then(function (response) {
+            response=response.data;
+            $scope.newsDetails.splice(0,$scope.newsDetails.length);
+            for(var i=0;i<response.docs.length;i++)
+            {
+                $scope.newsDetails.push(response.docs[i]);
+            }
+        });
+
+
+    };
+    function  searchNews() {
+    $scope.isNewsLoaded=false;
+
+    newsService.getSearchedNewsList($scope.model.query) .then(function (response)
+    {
+        $scope.isNewsLoaded=true;
+        response=response.data;
+        while($scope.newsDetails.length > 0) {
+            $scope.newsDetails.pop();
+        }
+        debugger;
+
+        for(var i=0;i<response.docs.length;i++)
+        {
+            $scope.newsDetails.push(response.docs[i]);
+        }
+    });
+}
 
 
 

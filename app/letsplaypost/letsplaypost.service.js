@@ -13,6 +13,29 @@ angular.module("gameApp").factory('letsplaypostService',['$http','SeatEatsConsta
         return promise;
     };
 
+    home.getLetsplayLike= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'letsplayslikes/'+arg);
+        return promise;
+    };
+
+    home.getLetsplayDislike= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'letsplaysdislikes/'+arg);
+        return promise;
+    };
+
+
+    home.getLetsplayFavourite= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'letsplaysfavourites/'+arg);
+        return promise;
+    };
+
+
 
     return home;
 

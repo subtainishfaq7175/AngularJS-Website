@@ -8,6 +8,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>GameMods</title>
+  <link rel="shortcut icon" href="common/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="common/img/apple-touch-icon.png">
+
   <meta name="keywords" content="Game E-gaming Game News GTA EAGames" />
   <meta name="description" content="Porto - Responsive HTML5 Template">
   <meta name="author" content="github.com/subtainishfaq">
@@ -86,6 +89,8 @@
 <body ng-controller="mainCtrl">
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-timeago/dist/angular-timeago.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
 <script src="app.js"></script>
 <script src="home/home.js"></script>
 <script src="home/home.service.js"></script>
@@ -102,6 +107,7 @@
 <script src="games/games.service.js"></script>
 <script src="games/games.js"></script>
 <script src="gamespost/gamespost.js"></script>
+<script src="login/loging.js"></script>
 <script src="gamespost/gamespost.service.js"></script>
 <script src="walkthrough/walkthrough.service.js"></script>
 <script src="walkthrough/walkthrough.js"></script>
@@ -113,7 +119,13 @@
 <script src="contact/contact.js"></script>
 <script src="disclaimer/disclaimer.js"></script>
 <script src="disclaimer/disclaimer.service.js"></script>
-
+<script src="profile/profile.js"></script>
+<script src="profile/profile.service.js"></script>
+<script src="disclaimer/disclaimer.service.js"></script>
+<script
+        src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit"
+        async defer
+></script>
 
 
 <script src="components/version/version.js"></script>
@@ -127,6 +139,7 @@
 <script src="approuteconfig.js"></script>
 <script src="bower_components/spin.js"></script>
 <script src="bower_components/angular-spinner.js"></script>
+<script src="bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
 
 
 
@@ -156,6 +169,7 @@
 <script src="common/vendor/jflickrfeed/jflickrfeed.js"></script>
 <script src="common/vendor/magnific-popup/jquery.magnific-popup.js"></script>
 <script src="common/vendor/vide/vide.js"></script>
+<script src="common/services/authentication.service.js"></script>
 
 <!-- Theme Base, Components and Settings -->
 <script src="common/scripts/js/theme.js"></script>
@@ -177,6 +191,9 @@
 <!-- Theme Initialization Files -->
 <script src="common/scripts/js/theme.init.js"></script>
 <script src="bower_components/angular-simple-slider.min.js"></script>
+<script src="bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
+<script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+
 
 <!--end adding theme scripts-->
 

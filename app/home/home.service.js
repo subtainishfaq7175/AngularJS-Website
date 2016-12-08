@@ -15,8 +15,15 @@ angular.module("gameApp").factory('homeService',['$http','SeatEatsConstants', fu
 
     home.getLetsplayUpdate= function (var1)
     {
+        var promise;
 
-        var promise = $http.get(SeatEatsConstants.AppUrlApi+'letsplaysupdate?language='+var1);
+        if(var1 == 'all')
+        {
+         promise = $http.get(SeatEatsConstants.AppUrlApi+'letsplaysupdate');
+            return promise;
+
+        }
+         promise = $http.get(SeatEatsConstants.AppUrlApi+'letsplaysupdate?language='+var1);
         return promise;
     };
 

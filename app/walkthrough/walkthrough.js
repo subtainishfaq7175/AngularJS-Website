@@ -6,13 +6,139 @@ angular.module('gameApp').controller('walkthroughCtrl', ['$scope','SeatEatsConst
     //todo add pagination ,tags and dyncamic data
 $scope.isWalkthroughLoaded = false;
 $scope.walkthroughList=[];
+$scope.search={};
+$scope.page=0;
+$scope.pages=0;
 
-walkthroughService.getWalkthroughList().then(function (response)
-{
+$scope.keyPressed=function () {
+
+    walkthroughService.getWalkthroughListBySearch($scope.search.value).then(function (response)
+    {
+        //$scope.walkthroughList
+        $scope.walkthroughList.splice(0,$scope.walkthroughList.length);
+
+
+
+        var currRow=-1;
+
+        for(var i=0; i<response.data.length;i++)
+        {
+            if(i%5==0)
+            {
+
+                $scope.walkthroughList.push({rows:[]});
+                currRow++;
+
+            }
+            $scope.walkthroughList[currRow].rows.push(response.data[i]);
+
+        }
+
+
+        $scope.isWalkthroughLoaded=true;
+      console.log(response);
+    });
+
+};
+
+$scope.resetFilters=function () {
+
+    walkthroughService.getWalkthroughListBySearch('').then(function (response)
+    {
+        //$scope.walkthroughList
+        $scope.walkthroughList.splice(0,$scope.walkthroughList.length);
+
+
+
+        var currRow=-1;
+
+        for(var i=0; i<response.data.length;i++)
+        {
+            if(i%5==0)
+            {
+
+                $scope.walkthroughList.push({rows:[]});
+                currRow++;
+
+            }
+            $scope.walkthroughList[currRow].rows.push(response.data[i]);
+
+        }
+
+
+        $scope.isWalkthroughLoaded=true;
+      console.log(response);
+    });
+
+};
+
+$scope.languageSelected=function (arg) {
+
+    walkthroughService.getWalkthroughListByLanguage(arg).then(function (response)
+    {
+        //$scope.walkthroughList
+        $scope.walkthroughList.splice(0,$scope.walkthroughList.length);
+
+
+
+        var currRow=-1;
+
+        for(var i=0; i<response.data.length;i++)
+        {
+            if(i%5==0)
+            {
+
+                $scope.walkthroughList.push({rows:[]});
+                currRow++;
+
+            }
+            $scope.walkthroughList[currRow].rows.push(response.data[i]);
+
+        }
+
+
+        $scope.isWalkthroughLoaded=true;
+      console.log(response);
+    });
+
+};
+
+$scope.tagSelected=function (arg) {
+
+    walkthroughService.getWalkthroughListByTag(arg).then(function (response)
+    {
+        //$scope.walkthroughList
+        $scope.walkthroughList.splice(0,$scope.walkthroughList.length);
+
+
+
+        var currRow=-1;
+
+        for(var i=0; i<response.data.length;i++)
+        {
+            if(i%5==0)
+            {
+
+                $scope.walkthroughList.push({rows:[]});
+                currRow++;
+
+            }
+            $scope.walkthroughList[currRow].rows.push(response.data[i]);
+
+        }
+
+
+        $scope.isWalkthroughLoaded=true;
+      console.log(response);
+    });
+
+};
+
+walkthroughService.getWalkthroughList(1).then(function (response) {
 
     var currRow=-1;
-
-    for(var i=0; i<response.data.length;i++)
+    debugger;
+    for(var i=0; i<response.data.docs.length;i++)
     {
         if(i%5==0)
         {
@@ -21,13 +147,46 @@ walkthroughService.getWalkthroughList().then(function (response)
             currRow++;
 
         }
-        $scope.walkthroughList[currRow].rows.push(data[i]);
+        $scope.walkthroughList[currRow].rows.push(response.data.docs[i]);
+
 
     }
-
+    $scope.page=response.data.page;
+    $scope.pages=response.data.pages;
 
     $scope.isWalkthroughLoaded=true;
 });
+
+    $scope.getNumber = function(num) {
+        return new Array(num);
+    };
+    $scope.getActivePage = function(num) {
+        if(num==$scope.page)
+        {
+            return "active"
+        }
+    };
+    $scope.getRequestedPage = function(num) {
+    walkthroughService.getWalkthroughList(num).then(function (response) {
+        var currRow=-1;
+        $scope.walkthroughList.splice(0,$scope.walkthroughList.length);
+
+        for(var i=0; i<response.data.docs.length;i++)
+        {
+            if(i%5==0)
+            {
+
+                $scope.walkthroughList.push({rows:[]});
+                currRow++;
+
+            }
+            $scope.walkthroughList[currRow].rows.push(response.data.docs[i]);
+
+
+        }
+
+    })};
+
 
 
 

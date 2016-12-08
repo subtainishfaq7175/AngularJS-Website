@@ -9,13 +9,13 @@
                         </li>
                         <li><a href="#">News</a>
                         </li>
-                        <li class="active">news.title</li>
+                        <li class="active">{{news.title}}</li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>news.title</h1>
+                    <h1>{{news.title}}</h1>
                 </div>
             </div>
         </div>
@@ -45,17 +45,17 @@
                                 <!-- Date etc. -->
 
                                 <div class="post-date">
-                                    <span class="day">{{news.release_date}}</span>
-                                    <span class="month">{{news.release_date}}</span>
+                                    <span class="day">{{news.release_date| date :'medium'}}</span>
+                                    <span class="month">{{news.release_date| date :'medium'}}</span>
                                 </div>
 
                                 <div class="post-content">
 
-                                    <h2><a href="blog-post.html">GTA V: How to mod cars</a></h2>
+                                    <h2><a>{{news.title}}</a></h2>
 
                                     <div class="post-meta">
-                                        <span><i class="fa fa-tag"></i> <a href="#">GTA V</a>, <a href="#">Mod</a> </span>
-                                        <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
+                                        <span><i class="fa fa-tag"></i> <a >GTA V</a>, <a >Mod</a> </span>
+                                        <span><i class="fa fa-comments"></i> <a >{{news.comments.length}} Comments</a></span>
                                     </div>
                                     <!-- Text -->
                                   <p>{{news.content}}</p>
@@ -63,10 +63,10 @@
                                     <!-- we could use the commenting system from the template, but i would prefer a more slender design which allows to upvote and downvote comments (maybe an external script?)-->
 
                                     <div class="post-block post-comments clearfix">
-                                        <h3 class="heading-primary"><i class="fa fa-comments"></i>Comments (3)</h3>
+                                        <h3 class="heading-primary"><i class="fa fa-comments"></i>Comments ({{news.comments.length}})</h3>
 
                                         <ul class="comments">
-                                            <li>
+                                           <!-- <li>
                                                 <div class="comment">
                                                     <div class="img-thumbnail">
                                                         <img class="avatar" alt="" src="common/img/avatar-2.jpg">
@@ -75,15 +75,16 @@
                                                         <div class="comment-arrow"></div>
                                                         <span class="comment-by">
 																<strong>John Doe</strong>
-																<span class="pull-right">
+																&lt;!&ndash;<span class="pull-right">
 																	<span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
-                                                                </span>
+                                                                </span>&ndash;&gt;
                                                                 </span>
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
                                                         <span class="date pull-right">January 12, 2013 at 1:38 pm</span>
                                                     </div>
                                                 </div>
 
+&lt;!&ndash;
                                                 <ul class="comments reply">
                                                     <li>
                                                         <div class="comment">
@@ -122,8 +123,27 @@
                                                         </div>
                                                     </li>
                                                 </ul>
+&ndash;&gt;
+                                            </li>-->
+                                            <li ng-repeat="item in news.comments">
+                                                <div class="comment">
+                                                    <div class="img-thumbnail">
+                                                        <img class="avatar" alt="" src="common/img/avatar.jpg">
+                                                    </div>
+                                                    <div class="comment-block">
+                                                        <div class="comment-arrow"></div>
+                                                        <span class="comment-by">
+																<strong>{{item.username}}</strong>
+																<!--<span class="pull-right">
+																	<span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
+                                                                </span>-->
+                                                                </span>
+                                                        <p>{{item.title}}</p>
+                                                        <span class="date pull-right">{{item.time| date:'medium'}}</span>
+                                                    </div>
+                                                </div>
                                             </li>
-                                            <li>
+                                            <!--<li>
                                                 <div class="comment">
                                                     <div class="img-thumbnail">
                                                         <img class="avatar" alt="" src="common/img/avatar.jpg">
@@ -132,33 +152,15 @@
                                                         <div class="comment-arrow"></div>
                                                         <span class="comment-by">
 																<strong>John Doe</strong>
-																<span class="pull-right">
+																&lt;!&ndash;<span class="pull-right">
 																	<span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
-                                                                </span>
+                                                                </span>&ndash;&gt;
                                                                 </span>
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                                         <span class="date pull-right">January 12, 2013 at 1:38 pm</span>
                                                     </div>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="comment">
-                                                    <div class="img-thumbnail">
-                                                        <img class="avatar" alt="" src="common/img/avatar.jpg">
-                                                    </div>
-                                                    <div class="comment-block">
-                                                        <div class="comment-arrow"></div>
-                                                        <span class="comment-by">
-																<strong>John Doe</strong>
-																<span class="pull-right">
-																	<span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
-                                                                </span>
-                                                                </span>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                        <span class="date pull-right">January 12, 2013 at 1:38 pm</span>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                            </li>-->
                                         </ul>
 
                                     </div>
@@ -166,8 +168,8 @@
                                     <div class="post-block post-leave-comment">
                                         <h3 class="heading-primary">Leave a comment</h3>
 
-                                        <form action="" method="post">
-                                            <div class="row">
+                                        <div  >
+                                           <!-- <div class="row">
                                                 <div class="form-group">
                                                     <div class="col-md-6">
                                                         <label>Your name *</label>
@@ -178,21 +180,21 @@
                                                         <input type="email" value="" maxlength="100" class="form-control" name="email" id="email">
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="row">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>Comment *</label>
-                                                        <textarea maxlength="5000" rows="10" class="form-control" name="comment" id="comment"></textarea>
+                                                        <textarea maxlength="5000" rows="10" class="form-control" name="comment"  ng-model="model.content"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <input type="submit" value="Post Comment" class="btn btn-primary btn-lg" data-loading-text="Loading...">
+                                                    <button   class="btn btn-primary btn-lg"  ng-click="postComment()" >Post Comment</button>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
 
                                 </div>
