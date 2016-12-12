@@ -6,7 +6,18 @@
     $scope.post=resolvedgame.data;
 
 //Todo make content dynamic and and add resolve
+$scope.getCounts=function ()
+{
+    gamespostService.getGamesCounts($scope.post._id).then(function (response) {
+        response=response.data;
+        $scope.post.likes=response.likes;
+        $scope.post.favourites=response.favourites;
+        $scope.post.dislikes=response.dislikes;
 
+        
+    })
+
+};
 $scope.Like=function ()
 {
 
@@ -16,6 +27,7 @@ $scope.Like=function ()
         gamespostService.getGamesLike($scope.post._id).then(function (response) {
 
             console.log(response);
+            $scope.getCounts();
         })  ;
 };
 $scope.DisLike=function ()
@@ -27,6 +39,7 @@ $scope.DisLike=function ()
         gamespostService.getGamesDislike($scope.post._id).then(function (response) {
 
             console.log(response);
+            $scope.getCounts();
         })  ;
 
 };
@@ -39,6 +52,7 @@ $scope.Favourite=function ()
         gamespostService.getGamesFavourite($scope.post._id).then(function (response) {
 
             console.log(response);
+            $scope.getCounts();
         })  ;
 
 };

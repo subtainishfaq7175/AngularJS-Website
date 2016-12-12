@@ -13,10 +13,17 @@
             <span us-spinner="{radius:30, width:8, length: 16}" class="ca-item ca-item-1" ng-if="!isGamesFeedLoaded"></span>
 
 
-            <simple-slider ng-if="isGamesFeedLoaded" slider-instance="slider" current-slide="actualValue" style="width:612px; height:612px;  align-content: center;" auto-play="false">
-                <img ng-repeat="(indexF, valueF) in gamesFeed" ng-src="{{valueF.image_url}}"  style="width:612px;height:400px;" align="middle"/>
 
+            <simple-slider ng-if="isGamesFeedLoaded" slider-instance="slider" current-slide="actualValue" style="width:612px; height:612px;  align-content: center;" auto-play="false">
+                <div class="ca-item ca-item-1" style="position: absolute; left: 0px;">
+                    <div class="ca-item-main">
+                        <div class="ca-icon">
+                            <img ng-repeat="(indexF, valueF) in gamesFeed" ng-src="{{valueF.image_url}}"  style="width:280px;height:392px" align="middle"/>
+                        </div>
+                    </div>
+                </div>
             </simple-slider>
+
 
         </div>
     </section>

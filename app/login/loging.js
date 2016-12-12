@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('gameApp').controller('LoginController', ['$scope','AuthenticationService','$rootScope','close',function($scope,AuthenticationService,$rootScope,close)
+angular.module('gameApp').controller('LoginController', ['$scope','AuthenticationService','$rootScope','close','toastr',function($scope,AuthenticationService,$rootScope,close,toastr)
 {
 
 
@@ -39,8 +39,12 @@ angular.module('gameApp').controller('LoginController', ['$scope','Authenticatio
                 close(null,500);
 
                 $rootScope.header.isSignedIn=true;
+                toastr.success('Login Successful', 'Welcome!');
+
 
             } else {
+                toastr.error('Login Failure', vm.error);
+
                 $scope.error = 'Username or password is incorrect';
                 $scope.loading = false;
             }
@@ -52,8 +56,11 @@ angular.module('gameApp').controller('LoginController', ['$scope','Authenticatio
         {
             debugger;
             if (result === true) {
-                console.log("success"); // $location.path('/dashboard');
+                console.log("success");
+                toastr.success('Signed up Successful', 'Welcome!');
+// $location.path('/dashboard');
             } else {
+                toastr.error('Login Failure', "Signed up Issue");
                 $scope.error = 'Username or password is incorrect';
                 $scope.loading = false;
             }

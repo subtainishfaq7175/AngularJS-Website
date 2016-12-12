@@ -34,6 +34,12 @@ angular.module("gameApp").factory('gamespostService',['$http','SeatEatsConstants
         var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamesfavourites/'+arg);
         return promise;
     };
+  home.getGamesCounts= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'gamescounts/'+arg);
+        return promise;
+    };
 
 
     return home;

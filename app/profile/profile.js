@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('gameApp').controller('profileCtrl', ['$scope','SeatEatsConstants','$state','$localStorage','AuthenticationService','$rootScope',function($scope,SeatEatsConstants,$state,$localStorage,AuthenticationService,$rootScope)
+angular.module('gameApp').controller('profileCtrl', ['$scope','SeatEatsConstants','$state','$localStorage','AuthenticationService','$rootScope','toastr',function($scope,SeatEatsConstants,$state,$localStorage,AuthenticationService,$rootScope,toastr)
 {
     if ($localStorage.currentUser)
     {
@@ -12,6 +12,8 @@ angular.module('gameApp').controller('profileCtrl', ['$scope','SeatEatsConstants
 
 
 $scope.Logout=function () {
+    toastr.success('Logged Out', 'Bye!');
+
     AuthenticationService.Logout();
     $state.go('home');
     $rootScope.header.isSignedIn=false;

@@ -9,15 +9,27 @@ angular.module('gameApp')
 //Todo make content dynamic and and add resolve
 $scope.news= resolvedNews.data;
 $scope.model={};
+$scope.reloadComments=function () {
 
+    newspostService.getNewsComments($scope.news._id).then(function (response) {
+
+        $scope.news.comments.splice(0,$scope.news.comments.length);
+        response=response.data;
+        $scope.news.comments=response.comments;
+
+
+    })
+
+
+    };
 $scope.postComment=function ()
 {
     newspostService.putNewsComments($scope.news._id,$scope.model).then(function (response)
     {
       console.log(response.data);
+        $scope.reloadComments();
     })
 }
-
 
 
 

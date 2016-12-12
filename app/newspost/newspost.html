@@ -54,7 +54,7 @@
                                     <h2><a>{{news.title}}</a></h2>
 
                                     <div class="post-meta">
-                                        <span><i class="fa fa-tag"></i> <a >GTA V</a>, <a >Mod</a> </span>
+                                        <span><i class="fa fa-tag"></i> <a  ng-repeat="(indexT, tag) in news.tags">{{tag.title}}</a></span>
                                         <span><i class="fa fa-comments"></i> <a >{{news.comments.length}} Comments</a></span>
                                     </div>
                                     <!-- Text -->

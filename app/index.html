@@ -63,6 +63,8 @@
   <link rel="stylesheet" href="common/style/css/jscrollpane.css">
   <link rel="stylesheet" href="common/style/css/brand.css">
   <link rel="stylesheet" href="common/style/css/table.css">
+  <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
+  <link rel="stylesheet" href="bower_components/ng-loaders/ngLoader.css">
 
   <!-- Head Libs -->
   <script src="common/vendor/modernizr/modernizr.js"></script>
@@ -140,12 +142,19 @@
 <script src="bower_components/spin.js"></script>
 <script src="bower_components/angular-spinner.js"></script>
 <script src="bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
+<script src="bower_components/ng-loaders/ngLoader.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
 
 
 
 <div id="header" ng-include="'common/header.html'"></div>
 
-
+<loader
+        working="scopeWorkingVariable"
+        disable-background="true"
+        message="scopeMessageVariable"
+        template="9">
+</loader>
 <div ui-view></div>
 
 <div id="footer" ng-include="'common/footer.html'"></div>

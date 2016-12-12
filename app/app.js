@@ -12,7 +12,9 @@ angular.module('gameApp', [
   'ngStorage',
     'ui.bootstrap',
     'yaru22.angular-timeago',
-    'vcRecaptcha'
+    'vcRecaptcha',
+    'ngLoader',
+    'toastr'
 
 ]).controller('mainCtrl', ['$scope','newsService','homeService','$localStorage','$rootScope','ModalService','$state',function($scope,newsService,homeService,$localStorage,$rootScope,ModalService,$state)
 {
@@ -76,6 +78,8 @@ function run($rootScope, $http, $state, $localStorage) {
         function(event, toState, toParams, fromState, fromParams, options)
         {
          //   $rootScope.header.toState=toState;
+            $rootScope.scopeMessageVariable="Loading";
+            $rootScope.scopeWorkingVariable=true;
 
             if(toState.name.indexOf("profile")!=-1)
             {
@@ -87,6 +91,10 @@ function run($rootScope, $http, $state, $localStorage) {
             }
         })
 
+    $rootScope.$on('$stateChangeSuccess',function(){
+        $rootScope.scopeWorkingVariable=false;
+
+    });
 
 
     function getStateClass(toState) {

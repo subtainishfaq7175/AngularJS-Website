@@ -6,6 +6,12 @@ angular.module("gameApp").factory('newspostService',['$http','SeatEatsConstants'
 
     var home = {};
 
+    home.getNewsComments= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'commentsadmin/'+arg);
+        return promise;
+    };
     home.getNewsPost= function (arg)
     {
 

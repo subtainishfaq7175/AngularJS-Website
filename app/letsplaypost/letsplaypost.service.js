@@ -35,6 +35,13 @@ angular.module("gameApp").factory('letsplaypostService',['$http','SeatEatsConsta
         return promise;
     };
 
+    home.getLetsplayCounts= function (arg)
+    {
+
+        var promise = $http.get(SeatEatsConstants.AppUrlApi+'letsplayscount/'+arg);
+        return promise;
+    };
+
 
 
     return home;
